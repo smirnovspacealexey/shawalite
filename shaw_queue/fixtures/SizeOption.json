@@ -1,0 +1,130 @@
+[
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 1,
+  "fields": {
+    "title": "Большая",
+    "customer_title": "Большая"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 2,
+  "fields": {
+    "title": "Средняя",
+    "customer_title": "Средняя"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 3,
+  "fields": {
+    "title": "Маленькая",
+    "customer_title": "Маленькая"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 4,
+  "fields": {
+    "title": "0,5л",
+    "customer_title": "0,5л"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 5,
+  "fields": {
+    "title": "Стандартный",
+    "customer_title": "Стандартный"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 6,
+  "fields": {
+    "title": "0,3л",
+    "customer_title": "0,3л"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 7,
+  "fields": {
+    "title": "0,2л",
+    "customer_title": "0,2л"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 8,
+  "fields": {
+    "title": "?",
+    "customer_title": "?"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 9,
+  "fields": {
+    "title": "Половина",
+    "customer_title": "Половина"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 10,
+  "fields": {
+    "title": "1 кг",
+    "customer_title": "1 кг"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 11,
+  "fields": {
+    "title": "100 гр",
+    "customer_title": "100 гр"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 12,
+  "fields": {
+    "title": "80мл",
+    "customer_title": "80мл"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 13,
+  "fields": {
+    "title": "Test mega big size",
+    "customer_title": "Test mega big size"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 14,
+  "fields": {
+    "title": "children_size",
+    "customer_title": "для детей"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 15,
+  "fields": {
+    "title": "Маленькая 23 см",
+    "customer_title": "Маленькая 23 см"
+  }
+},
+{
+  "model": "shaw_queue.sizeoption",
+  "pk": 16,
+  "fields": {
+    "title": "Большая 30см",
+    "customer_title": "Большая 30см"
+  }
+}
+]

@@ -1,0 +1,243 @@
+{% block aditional_static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'queue/loader.css' %}">
+    <script type="text/javascript" src="{% static 'js/menu_handlers.js' %}"></script>
+{% endblock %}
+{% block content %}
+    <input hidden id="menu-urls" data-status-refresh-url="{% url 'status_refresh' %}"
+           data-search-comment="{% url 'search_comment' %}">
+    <input hidden id="is-modal" value="{{ is_modal }}">
+    {% if order_id %}
+        <input hidden id="order_id" value="{{ order_id }}">
+    {% endif %}
+    <div class="modal-menu modal-content" style="width:80%; height: 80%; max-height: 650px">
+        <div class="modal" id="modal-edit">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <p id="item-title" class="modal-title">Title</p>
+                <p>
+                    <label for="item-quantity" class="modal-label">Количество</label>
+                    <input type="text" value="" class="quantityInput" id="item-quantity"
+                           onclick="this.setSelectionRange(0, this.value.length)">
+                    <button class="btn info" id="plus-button">+</button>
+                    <button class="btn info" id="minus-button">-</button>
+                <div class="quick-comment-container">
+                    <button class="btn img-btn" id="cheese-button"><img alt="" src="{% static 'img/btns/cheese.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="greens-button"><img alt="" src="{% static 'img/btns/greens.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="spicy-button"><img alt="" src="{% static 'img/btns/spicy.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="spicy30-button"><img alt=""
+                                                                         src="{% static 'img/btns/spicy30.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="yellow-button"><img alt="" src="{% static 'img/btns/yellow.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="noOnion-button"><img alt=""
+                                                                         src="{% static 'img/btns/noOnion.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="saucePlus-button"><img alt=""
+                                                                           src="{% static 'img/btns/saucePlus.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="sauceMinus-button"><img alt=""
+                                                                            src="{% static 'img/btns/sauceMinus.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="noVegetables-button"><img alt=""
+                                                                              src="{% static 'img/btns/noVegetables.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="frenchFries-button"><img alt=""
+                                                                             src="{% static 'img/btns/frenchFries.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="chile-button"><img alt=""
+                                                                       src="{% static 'img/btns/chile.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="mushrooms-button"><img alt=""
+                                                                           src="{% static 'img/btns/mushrooms.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="jalapeno-button"><img alt=""
+                                                                          src="{% static 'img/btns/jalapeno.png' %}">
+                    </button>
+                    <button class="btn img-btn" id="bellPepper-button"><img alt=""
+                                                                            src="{% static 'img/btns/bellPepper.png' %}">
+                    </button>
+                </div>
+                </p>
+                <p>
+                    <label for="item-note" class="modal-label">Комментарий</label>
+                    <input type="text" value="" class="live-search-box" id="item-note">
+                <div id="dropdown-list-container"></div>
+                </p>
+                <br>
+                <p>
+                    <label for="item-qr" class="modal-label"><img height="35" src="data:image/png;base64,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" />QR </label>
+                    <input oninput="addSymbol()" type="text" value="" class="live-search-box" id="item-qr">
+                </p>
+
+
+                <script>
+                    $( document ).ready(function() {                     
+                        initiate();                        
+                        let inputQR = document.getElementById("item-qr");
+                        let inputing = false;
+
+                        function checkInputing() {
+                            if (inputing) {
+                                inputQR.value = rus_to_latin(inputQR.value)
+                            } else {
+                                inputing = false;
+                            }
+                        }
+
+                        inputQR.focus();
+                        inputQR.value = '';
+
+                        function addSymbol() {
+                            inputing = true;
+                            setTimeout(checkInputing, 2000);
+                        }
+
+                        function rus_to_latin (str) {
+                            var ru = {
+                                'й': 'q', 'ц': 'w', 'у': 'e', 'к': 'r', 'е': 't', 'н': 'y', 'г': 'u', 'ш': 'i', 'щ': 'o', 'з': 'p', 'х': '[', 'ъ': ']', 'ф': 'a', 'ы': 's', 'в': 'd', 'а': 'f', 'п': 'g', 'р': 'h', 'о': 'j', 'л': 'k', 'д': 'l', 'ж': ';', 'э': "'", 'я': 'z', 'ч': 'x', 'с': 'c', 'м': 'v', 'и': 'b', 'т': 'n', 'ь': 'm', 'б': ',', 'ю': '.', '.': '/',
+                                'Й': 'Q', 'Ц': 'W', 'У': 'E', 'К': 'R', 'Е': 'T', 'Н': 'Y', 'Г': 'U', 'Ш': 'I', 'Щ': 'O', 'З': 'P', 'Х': '[', 'Ъ': ']', 'Ф': 'A', 'Ы': 'S', 'В': 'D', 'А': 'F', 'П': 'G', 'Р': 'H', 'О': 'J', 'Л': 'K', 'Д': 'L', 'Ж': ';', 'Э': "'", 'Я': 'Z', 'Ч': 'X', 'С': 'C', 'М': 'V', 'И': 'B', 'Т': 'N', 'Ь': 'M', 'Б': ',', 'Ю': '.',
+
+                            }, n_str = [];
+
+                            for ( var i = 0; i < str.length; ++i ) {
+                                n_str.push(
+                                    ru[ str[i] ]
+                                    || ru[ str[i].toLowerCase() ] == undefined && str[i]
+                                    || ru[ str[i].toLowerCase() ].replace(/^(.)/, function ( match ) { return match.toUpperCase() })
+                                );
+                            }
+
+                            return n_str.join('');
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="modal" id="modal-status">
+            <div class="modal-content">
+                {#            <span class="close" id="close-modal-status">&times;</span>#}
+                <div class="loader-container" id="loader-container">
+                    <div class="loader" id="loading-indicator"></div>
+                </div>
+                <p class="status-display" id="status-display">
+                    Статус...
+                </p>
+                <p class="modal-cash-input-container">
+                    <label for="order-change" class="modal-label" id="order-change-label" hidden>Наличные</label>
+                    <input type="text" value="" class="modal-quantity-input" id="order-change"
+                           onclick="this.setSelectionRange(0, this.value.length)" onkeyup="CalculateChange()" hidden>
+                </p>
+                <p class="status-display" id="change-display" hidden>
+                    Сдача...
+                </p>
+                <p class="modal-buttons-container">
+                    <button class="btn success" id="status-OK-button">OK</button>
+                    <button class="btn danger" id="status-cancel-button" onclick="CancelHandler()">Отмена</button>
+                    <button class="btn warning" id="status-retry-button" onclick="RetryHandler()">Повторить</button>
+                    <button class="btn warning" id="status-retry-cash-button" onclick="RetryCashHandler()">Оплатить
+                        наличными
+                    </button>
+                </p>
+            </div>
+        </div>
+        <span class="close" id="close-modal-menu">&times;</span>
+        <div class="menu-div" style="width:calc(100% - 300px); height:100%; max-height: 650px;">
+            {% include 'shaw_queue/menu.html' with menu_items=menu_items %}
+        </div>
+        <div class="order-div" style="width:250px;">
+
+            <button type="button" class="subm small-btn success" data-send-url="{% url 'make_order' %}"
+                    onclick="SendOrder()">
+                Принять
+            </button>
+            <div class="shadowed">
+                <p>
+                    <input type="radio" id="not_paid"{% if not order.is_paid %} checked{% endif %} value="not_paid" name="payment_choose">
+                    <label for="not_paid">Не Оплачен</label>
+                </p>
+                <p>
+                    <input type="radio" id="paid_with_cash"{% if order.is_paid %} checked{% endif %} value="paid_web" name="payment_choose">
+                    <label for="paid_with_cash">Оплачен на сайте</label>
+                </p>
+                {% if not delivery_mode %}
+                    <p>
+                        <input type="radio" id="paid_with_cash" value="paid_with_cash"
+                               name="payment_choose">
+                        <label for="paid_with_cash">Наличные</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="paid_without_cash" value="paid_without_cash"
+                               name="payment_choose">
+                        <label for="paid_without_cash">Безналичный</label>
+                    </p>
+                {% endif %}
+            </div>
+            <div class="shadowed">
+                {% if not delivery_mode %}
+                    <p>
+                        <input type="radio" id="cook_auto" checked name="cook_choose" value="auto">
+                        <label for="cook_auto">Автоназначение</label>
+                    </p>
+                    {% for available_cooker in available_cookers %}
+                        <p>
+                            <input type="radio" id="cook_{{ available_cooker.id }}" name="cook_choose"
+                                   value="{{ available_cooker.id }}">
+                            <label for="cook_{{ available_cooker.id }}">{{ available_cooker.user.first_name }} {{ available_cooker.user.last_name }}</label>
+                        </p>
+                    {% endfor %}
+                {% else %}
+                    <p>
+                        <input type="radio" id="cook_delivery" checked name="cook_choose" value="delivery">
+                        <label for="cook_auto">Доставка</label>
+                    </p>
+                {% endif %}
+            </div>
+            <div style="overflow-y: scroll; max-height: 500px;">
+                <br><br><br>
+                <table class="currentOrderTable" id="menu-order-display">
+                    <thead>Содержание заказа
+                    <tr>
+                        <td class="currentOrderTotalText">
+                            <div>
+                                Итого
+                            </div>
+                        </td>
+                        <td class="currentOrderTotalFig">
+                            <div>
+                                <p class="totalDisplay">
+
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                    <tfoot>
+                    <tr>
+                        <td class="currentOrderTotalText">
+                            <div>
+                                Итого
+                            </div>
+                        </td>
+                        <td class="currentOrderTotalFig">
+                            <div>
+                                <p class="totalDisplay">
+
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

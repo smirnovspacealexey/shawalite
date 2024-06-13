@@ -1,0 +1,109 @@
+{% load static %}
+<div class="order-block-container"> <!--onclick="OrderSpecifics({{ open_order.order.id }})"-->
+    <div class="order-block {% if not open_order.printed and open_order.cook_part_ready_count.count > 0 %}
+    order-started
+    {% else %}
+    shadowed
+    {% endif %}
+    {% if not open_order.order.is_paid %}unpaid{% endif %}">
+        <div class="order-block-header"{% if open_order.order.from_site %} title="С сайта" {% endif %}>
+            <div class="order-number {% if open_order.order.is_preorder %}
+                                            {% if open_order.order.content_completed and open_order.order.shashlyk_completed %}
+                                                ready
+                                            {% else %}
+                                                inProduction
+                                            {% endif %}
+                                        {% else %}
+                                            {% if open_order.order.content_completed and open_order.order.shashlyk_completed %}
+                                                    ready
+                                            {% else %}
+                                                {% if open_order.order.is_grilling or open_order.order.is_grilling_shash %}
+                                                    inGrill
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if open_order.order.from_site %} fromSite {% endif %}
+                                        {% endif %}">
+                <a style="position: absolute" href="{% url 'order_content' open_order.order.id %}">№{% if open_order.order.delivery_daily_number %}Д{{ open_order.order.delivery_daily_number }}{% else %}{{ open_order.display_number }}{% endif %}</a>№
+            </div>
+            <div class="order-cook-part {% if open_order.order.from_site %} fromSite{% endif %}
+                                        {% if open_order.order.is_preorder %}
+                                            {% if open_order.order.content_completed and open_order.order.shashlyk_completed %}
+                                                {% if open_order.order.from_site %}fromSite_{% endif %}preorder_ready
+                                            {% else %}
+                                                {% if open_order.order.from_site %}fromSite_{% endif %}inProduction
+                                            {% endif %}
+                                        {% else %}
+                                            {% if open_order.order.content_completed and open_order.order.shashlyk_completed %}
+                                                    {% if open_order.order.from_site %}fromSite_{% endif %}ready
+                                            {% else %}
+                                                {% if open_order.order.is_grilling or open_order.order.is_grilling_shash %}
+                                                    {% if open_order.order.from_site %}fromSite_{% endif %}inGrill
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}">
+                <a href="{% url 'order_content' open_order.order.id %}">{{ open_order.order.prepared_by.user.first_name }}
+                    ({{ open_order.cook_part_ready_count.count }}/{{ open_order.cook_part_count.count }})</a>
+            </div>
+            <div class="order-block-actions">
+                {% if staff_category.title == 'Operator' %}
+                    <button class="small-btn warning"
+                            {% if not open_order.order.content_completed or not open_order.order.shashlyk_completed or not open_order.order.supplement_completed %}
+                            disabled
+                            {% endif %}
+                            onclick="CloseOrder({{ open_order.order.id }})">
+                        Закрыть
+                    </button>
+                    <button onclick="PrintOrder({{ open_order.order.id }})" class="small-btn info small-btn_img">
+                        <img src="{% static "img/printing-text24.png" %}" alt="Print">
+                    </button>
+                    {% if open_order.order.is_ready %}
+                        <button onclick="VoiceOrder('{% url 'voice_order' open_order.order.id %}')"
+                                class="small-btn info small-btn_img">
+                            <img src="{% static "img/voice-icon.png" %}">
+                        </button>
+                    {% endif %}
+                {% endif %}
+                {% if staff_category.title == 'Cashier' or staff_category.title == 'DeliveryAdmin' %}
+                    <button class="small-btn warning"
+                            {% if not open_order.order.content_completed or not open_order.order.shashlyk_completed or not open_order.order.supplement_completed %}
+                            disabled
+                            {% endif %}
+                            onclick="CloseOrder({{ open_order.order.id }})">
+                        Закрыть
+                    </button>
+                    <button class="small-btn danger" onclick="CancelOrder({{ open_order.order.id }})">
+                        Отменить
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="order-operator-part">
+            <a href="{% url 'order_content' order_id=open_order.order.id %}">
+                {% for oper_content in open_order.operator_part %}
+                    <div class="order-item">
+                        {{ oper_content.menu_item__title }} <span
+                            class="quantity-multiplyer">x{{ oper_content.count_titles }}</span>
+                    </div>
+                {% empty %}
+                    <p>Нет доп. товаров.</p>
+                {% endfor %}
+            </a>
+        </div>
+        <div class="order-total">
+            {% if not open_order.order.pickup and open_order.order.is_delivery %}
+                <img title="доставка" width="30" style="position: absolute; top: 20px" src="data:image/png;base64,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">
+                <span style="position: absolute; top: 20px; left: 30px" >{{ open_order.order.six_numbers_for_yandex }}{% if open_order.order.deliveryhistory_set.last %} {{ open_order.order.deliveryhistory_set.last.status_html | safe }}{% endif %}</span>
+            {% endif %}
+            {% if open_order.order.pickup %}
+                <img title="самовывоз" width="25" style="position: absolute; top: 17px" src="data:image/png;base64,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">
+            {% endif %}
+            <div class="servery-title">
+                {{ open_order.order.servery }}
+            </div>
+            <div class="order-total-text">
+                Итого: {{ open_order.order.total }}
+            </div>
+        </div>
+    </div>
+</div>

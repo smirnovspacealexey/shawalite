@@ -1,0 +1,362 @@
+[
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 2,
+  "fields": {
+    "title": "Шашлык",
+    "customer_title": "Шашлык",
+    "eng_title": "shashlyk",
+    "weight": 90,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 3,
+  "fields": {
+    "title": "Бурум",
+    "customer_title": "Бурум",
+    "eng_title": "burum",
+    "weight": 30,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 4,
+  "fields": {
+    "title": "Люля-Кебаб",
+    "customer_title": "Люля-Кебаб",
+    "eng_title": "kebab",
+    "weight": 92,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 5,
+  "fields": {
+    "title": "Мясо/Фарш",
+    "customer_title": "",
+    "eng_title": "meet",
+    "weight": 95,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 6,
+  "fields": {
+    "title": "Соусы",
+    "customer_title": "",
+    "eng_title": "sause",
+    "weight": 94,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 7,
+  "fields": {
+    "title": "Добавки",
+    "customer_title": "",
+    "eng_title": "dop",
+    "weight": 70,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 8,
+  "fields": {
+    "title": "Напитки",
+    "customer_title": "Напитки",
+    "eng_title": "drinks",
+    "weight": 80,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 9,
+  "fields": {
+    "title": "Лаваш",
+    "customer_title": "",
+    "eng_title": "lavash",
+    "weight": 90,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 10,
+  "fields": {
+    "title": "Доставка",
+    "customer_title": "",
+    "eng_title": "delivery",
+    "weight": 110,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 11,
+  "fields": {
+    "title": "Сертификаты",
+    "customer_title": "",
+    "eng_title": "sertificats",
+    "weight": 100,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 12,
+  "fields": {
+    "title": "Шаурма MIX",
+    "customer_title": "Шаурма микс",
+    "eng_title": "shawrma-mix",
+    "weight": 105,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 13,
+  "fields": {
+    "title": "Гор.напит.",
+    "customer_title": "Горячие напитки",
+    "eng_title": "tea",
+    "weight": 82,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 14,
+  "fields": {
+    "title": "Прочее",
+    "customer_title": "",
+    "eng_title": "other",
+    "weight": 100,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 15,
+  "fields": {
+    "title": "Н1",
+    "customer_title": "H1",
+    "eng_title": "Undistributed",
+    "weight": 0,
+    "hidden": true,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 16,
+  "fields": {
+    "title": "8 марта",
+    "customer_title": "",
+    "eng_title": "8m",
+    "weight": 95,
+    "hidden": true,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 17,
+  "fields": {
+    "title": "редкое",
+    "customer_title": "редкое",
+    "eng_title": "rare",
+    "weight": 114,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 18,
+  "fields": {
+    "title": "test",
+    "customer_title": "",
+    "eng_title": "test",
+    "weight": 0,
+    "hidden": true,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 19,
+  "fields": {
+    "title": "Дёнер",
+    "customer_title": "Дёнер",
+    "eng_title": "dener",
+    "weight": 30,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 20,
+  "fields": {
+    "title": "НовГод",
+    "customer_title": "Новый год",
+    "eng_title": "NewYear",
+    "weight": 120,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 21,
+  "fields": {
+    "title": "Пицца",
+    "customer_title": "Пицца",
+    "eng_title": "Pizza",
+    "weight": 120,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 22,
+  "fields": {
+    "title": "Супы",
+    "customer_title": "Супы",
+    "eng_title": "Soups",
+    "weight": 121,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 23,
+  "fields": {
+    "title": "Салаты",
+    "customer_title": "Салаты",
+    "eng_title": "Salads",
+    "weight": 122,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 24,
+  "fields": {
+    "title": "Паста",
+    "customer_title": "Паста",
+    "eng_title": "Pasta",
+    "weight": 123,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 25,
+  "fields": {
+    "title": "Горячее",
+    "customer_title": "Горячее",
+    "eng_title": "Hot",
+    "weight": 124,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 26,
+  "fields": {
+    "title": "Бургер",
+    "customer_title": "Бургер",
+    "eng_title": "Burger",
+    "weight": 125,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 27,
+  "fields": {
+    "title": "Десерты",
+    "customer_title": "Десерты",
+    "eng_title": "dessert",
+    "weight": 130,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 28,
+  "fields": {
+    "title": "Шаурма",
+    "customer_title": "Шаурма",
+    "eng_title": "Shawarma",
+    "weight": 1,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 29,
+  "fields": {
+    "title": "Комбо наборы",
+    "customer_title": "Комбо наборы",
+    "eng_title": "Kombo",
+    "weight": 115,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 30,
+  "fields": {
+    "title": "Блины",
+    "customer_title": "Блины",
+    "eng_title": "pancake",
+    "weight": 123,
+    "hidden": false,
+    "customer_appropriate": true
+  }
+},
+{
+  "model": "shaw_queue.menucategory",
+  "pk": 31,
+  "fields": {
+    "title": "Shaslyk2",
+    "customer_title": "Шашлык 2",
+    "eng_title": "Shaslyk2",
+    "weight": 40,
+    "hidden": false,
+    "customer_appropriate": false
+  }
+}
+]

@@ -1,0 +1,562 @@
+[
+{
+  "model": "shaw_queue.productoption",
+  "pk": 1,
+  "fields": {
+    "title": "Халапеньо маленькая",
+    "customer_title": "Халапеньо маленькая",
+    "menu_item": 227,
+    "product_variants": [
+      88,
+      12,
+      74,
+      80,
+      77,
+      68,
+      65,
+      8,
+      71,
+      73,
+      72,
+      3,
+      2,
+      59,
+      62
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 2,
+  "fields": {
+    "title": "Перец чили маленькая",
+    "customer_title": "Перец чили маленькая",
+    "menu_item": 225,
+    "product_variants": [
+      88,
+      12,
+      74,
+      80,
+      77,
+      68,
+      65,
+      8,
+      71,
+      73,
+      72,
+      3,
+      2,
+      59,
+      62
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 3,
+  "fields": {
+    "title": "Перец чили большая",
+    "customer_title": "Перец чили большая",
+    "menu_item": 224,
+    "product_variants": [
+      90,
+      24,
+      76,
+      82,
+      79,
+      70,
+      67,
+      10,
+      7,
+      5,
+      61,
+      64
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 4,
+  "fields": {
+    "title": "Перец чили средняя",
+    "customer_title": "Перец чили средняя",
+    "menu_item": 211,
+    "product_variants": [
+      58,
+      92,
+      89,
+      11,
+      91,
+      95,
+      96,
+      94,
+      93,
+      97,
+      75,
+      81,
+      78,
+      69,
+      66,
+      9,
+      6,
+      1,
+      60,
+      63
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 5,
+  "fields": {
+    "title": "Халапеньо средняя",
+    "customer_title": "Халапеньо средняя",
+    "menu_item": 208,
+    "product_variants": [
+      58,
+      92,
+      89,
+      11,
+      91,
+      95,
+      96,
+      94,
+      93,
+      97,
+      75,
+      81,
+      78,
+      69,
+      66,
+      9,
+      6,
+      1,
+      60,
+      63
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 6,
+  "fields": {
+    "title": "Халапеньо большая",
+    "customer_title": "Халапеньо большая",
+    "menu_item": 226,
+    "product_variants": [
+      90,
+      24,
+      76,
+      82,
+      79,
+      70,
+      67,
+      10,
+      7,
+      5,
+      61,
+      64
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 7,
+  "fields": {
+    "title": "Сыр маленькая",
+    "customer_title": "Сыр маленькая",
+    "menu_item": 212,
+    "product_variants": [
+      88,
+      12,
+      74,
+      80,
+      77,
+      68,
+      65,
+      8,
+      71,
+      73,
+      72,
+      3,
+      2,
+      59,
+      62
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 8,
+  "fields": {
+    "title": "Сыр средняя",
+    "customer_title": "Сыр средняя",
+    "menu_item": 223,
+    "product_variants": [
+      58,
+      92,
+      89,
+      11,
+      91,
+      95,
+      96,
+      94,
+      93,
+      97,
+      75,
+      81,
+      78,
+      69,
+      66,
+      9,
+      6,
+      1,
+      60,
+      63
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 9,
+  "fields": {
+    "title": "Сыр большая",
+    "customer_title": "Сыр большая",
+    "menu_item": 220,
+    "product_variants": [
+      90,
+      24,
+      76,
+      82,
+      79,
+      70,
+      67,
+      10,
+      7,
+      5,
+      61,
+      64
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 10,
+  "fields": {
+    "title": "Картофель фри маленькая",
+    "customer_title": "Картофель фри маленькая",
+    "menu_item": 210,
+    "product_variants": [
+      88,
+      12,
+      74,
+      80,
+      77,
+      68,
+      65,
+      8,
+      71,
+      73,
+      72,
+      3,
+      2,
+      59,
+      62
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 11,
+  "fields": {
+    "title": "Картофель фри средняя",
+    "customer_title": "Картофель фри средняя",
+    "menu_item": 222,
+    "product_variants": [
+      58,
+      92,
+      89,
+      11,
+      91,
+      95,
+      96,
+      94,
+      93,
+      97,
+      75,
+      81,
+      78,
+      69,
+      66,
+      9,
+      6,
+      1,
+      60,
+      63
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 12,
+  "fields": {
+    "title": "Картофель фри большая",
+    "customer_title": "Картофель фри большая",
+    "menu_item": 221,
+    "product_variants": [
+      90,
+      24,
+      76,
+      82,
+      79,
+      70,
+      67,
+      10,
+      7,
+      5,
+      61,
+      64
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 13,
+  "fields": {
+    "title": "Болгарский перец маленькая",
+    "customer_title": "Болгарский перец маленькая",
+    "menu_item": 209,
+    "product_variants": [
+      88,
+      74,
+      80,
+      77,
+      68,
+      65,
+      8,
+      71,
+      73,
+      72,
+      3,
+      2,
+      59,
+      62
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 14,
+  "fields": {
+    "title": "Болгарский перец средняя",
+    "customer_title": "Болгарский перец средняя",
+    "menu_item": 213,
+    "product_variants": [
+      58,
+      92,
+      89,
+      11,
+      91,
+      95,
+      96,
+      94,
+      93,
+      97,
+      75,
+      81,
+      78,
+      69,
+      66,
+      9,
+      6,
+      1,
+      60,
+      63
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 15,
+  "fields": {
+    "title": "Болгарский перец большая",
+    "customer_title": "Болгарский перец большая",
+    "menu_item": 214,
+    "product_variants": [
+      90,
+      24,
+      76,
+      82,
+      79,
+      70,
+      67,
+      10,
+      7,
+      5,
+      61,
+      64
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 16,
+  "fields": {
+    "title": "Грибы маленькая",
+    "customer_title": "Грибы маленькая",
+    "menu_item": 219,
+    "product_variants": [
+      88,
+      12,
+      74,
+      80,
+      77,
+      68,
+      65,
+      8,
+      71,
+      73,
+      72,
+      3,
+      2,
+      59,
+      62
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 17,
+  "fields": {
+    "title": "Грибы средняя",
+    "customer_title": "Грибы средняя",
+    "menu_item": 207,
+    "product_variants": [
+      58,
+      92,
+      89,
+      11,
+      91,
+      95,
+      96,
+      94,
+      93,
+      97,
+      75,
+      81,
+      78,
+      69,
+      66,
+      9,
+      6,
+      1,
+      60,
+      63
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 18,
+  "fields": {
+    "title": "Грибы большая",
+    "customer_title": "Грибы большая",
+    "menu_item": 218,
+    "product_variants": [
+      90,
+      24,
+      76,
+      82,
+      79,
+      70,
+      67,
+      10,
+      7,
+      5,
+      61,
+      64
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 19,
+  "fields": {
+    "title": "Картофель фри+сыр маленькая",
+    "customer_title": "Картофель фри+сыр маленькая",
+    "menu_item": 215,
+    "product_variants": [
+      88,
+      12,
+      74,
+      80,
+      77,
+      68,
+      65,
+      8,
+      71,
+      73,
+      72,
+      3,
+      2,
+      59,
+      62
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 20,
+  "fields": {
+    "title": "Картофель фри+сыр средняя",
+    "customer_title": "Картофель фри+сыр средняя",
+    "menu_item": 216,
+    "product_variants": [
+      58,
+      92,
+      89,
+      11,
+      91,
+      95,
+      96,
+      94,
+      93,
+      97,
+      75,
+      81,
+      78,
+      69,
+      66,
+      9,
+      6,
+      1,
+      60,
+      63
+    ]
+  }
+},
+{
+  "model": "shaw_queue.productoption",
+  "pk": 21,
+  "fields": {
+    "title": "Картофель фри+сыр большая",
+    "customer_title": "Картофель фри+сыр большая",
+    "menu_item": 217,
+    "product_variants": [
+      90,
+      24,
+      94,
+      76,
+      82,
+      79,
+      70,
+      67,
+      10,
+      7,
+      5,
+      61,
+      64
+    ]
+  }
+}
+]

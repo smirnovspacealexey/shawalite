@@ -1,0 +1,4 @@
+{% for delivery_order in delivery_orders %}
+    {% include 'shaw_queue/delivery_order_block.html' with delivery_order=delivery_order %}
+{% empty %}
+{% endfor %}

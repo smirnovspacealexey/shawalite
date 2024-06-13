@@ -1,0 +1,1042 @@
+[
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 1,
+  "fields": {
+    "title": "Говядина",
+    "customer_title": "Говядина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 2,
+  "fields": {
+    "title": "Свинина",
+    "customer_title": "Свинина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 3,
+  "fields": {
+    "title": "Курица",
+    "customer_title": "Курица"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 4,
+  "fields": {
+    "title": "Nestea",
+    "customer_title": "Nestea"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 5,
+  "fields": {
+    "title": "Сыр в лаваше",
+    "customer_title": "Сыр в лаваше"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 6,
+  "fields": {
+    "title": "Лаваш",
+    "customer_title": "Лаваш"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 7,
+  "fields": {
+    "title": "Допы",
+    "customer_title": "Допы"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 8,
+  "fields": {
+    "title": "Морс",
+    "customer_title": "Морс"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 9,
+  "fields": {
+    "title": "Лимонад",
+    "customer_title": "Лимонад"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 10,
+  "fields": {
+    "title": "Чай",
+    "customer_title": "Чай"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 11,
+  "fields": {
+    "title": "Кофе",
+    "customer_title": "Кофе"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 12,
+  "fields": {
+    "title": "Газ.вода",
+    "customer_title": "Газ.вода"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 13,
+  "fields": {
+    "title": "Холодные напитки",
+    "customer_title": "Холодные напитки"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 14,
+  "fields": {
+    "title": "Sprite",
+    "customer_title": "Sprite"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 15,
+  "fields": {
+    "title": "Баранина",
+    "customer_title": "Баранина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 16,
+  "fields": {
+    "title": "Люля-Кебаб курица",
+    "customer_title": "Люля-Кебаб курица"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 17,
+  "fields": {
+    "title": "Люля-Кебаб Бурум баранина",
+    "customer_title": "Люля-Кебаб Бурум баранина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 18,
+  "fields": {
+    "title": "Люля-Кебаб Бурум курица",
+    "customer_title": "Люля-Кебаб Бурум курица"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 19,
+  "fields": {
+    "title": "Люля-Кебаб Бурум говядина",
+    "customer_title": "Люля-Кебаб Бурум говядина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 20,
+  "fields": {
+    "title": "Сок СТОМ",
+    "customer_title": "Сок СТОМ"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 21,
+  "fields": {
+    "title": "Fanta",
+    "customer_title": "Fanta"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 22,
+  "fields": {
+    "title": "Бурум Свинина",
+    "customer_title": "Бурум Свинина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 23,
+  "fields": {
+    "title": "Соус Белый",
+    "customer_title": "Соус Белый"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 24,
+  "fields": {
+    "title": "Морс",
+    "customer_title": "Морс"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 25,
+  "fields": {
+    "title": "Лимонад",
+    "customer_title": "Лимонад"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 26,
+  "fields": {
+    "title": "Кофе черный",
+    "customer_title": "Кофе черный"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 27,
+  "fields": {
+    "title": "Кофе с Молоком",
+    "customer_title": "Кофе с Молоком"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 28,
+  "fields": {
+    "title": "Люля-Кебаб говядина",
+    "customer_title": "Люля-Кебаб говядина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 29,
+  "fields": {
+    "title": "Люля-Кебаб баранина",
+    "customer_title": "Люля-Кебаб баранина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 30,
+  "fields": {
+    "title": "Курица б/к бедро 1кг",
+    "customer_title": "Курица б/к бедро 1кг"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 31,
+  "fields": {
+    "title": "Говяд мякоть мрам 1кг",
+    "customer_title": "Говяд мякоть мрам 1кг"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 32,
+  "fields": {
+    "title": "Говядина мякоть 1кг",
+    "customer_title": "Говядина мякоть 1кг"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 33,
+  "fields": {
+    "title": "Рыба семга 1кг",
+    "customer_title": "Рыба семга 1кг"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 34,
+  "fields": {
+    "title": "Баран. спинка 1кг",
+    "customer_title": "Баран. спинка 1кг"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 35,
+  "fields": {
+    "title": "Соус красный",
+    "customer_title": "Соус красный"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 36,
+  "fields": {
+    "title": "Соус острый",
+    "customer_title": "Соус острый"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 37,
+  "fields": {
+    "title": "Бон Аква",
+    "customer_title": "Бон Аква"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 38,
+  "fields": {
+    "title": "CocaCola",
+    "customer_title": "CocaCola"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 39,
+  "fields": {
+    "title": "Палпи",
+    "customer_title": "Палпи"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 40,
+  "fields": {
+    "title": "Сок Добрый",
+    "customer_title": "Сок Добрый"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 41,
+  "fields": {
+    "title": "Чай СТОМ",
+    "customer_title": "Чай СТОМ"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 42,
+  "fields": {
+    "title": "Шейка маринад 1кг",
+    "customer_title": "Шейка маринованная 1кг"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 43,
+  "fields": {
+    "title": "Прочее",
+    "customer_title": "Прочее"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 44,
+  "fields": {
+    "title": "Морс",
+    "customer_title": "Морс"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 45,
+  "fields": {
+    "title": "Королевская креветка",
+    "customer_title": "Королевская креветка"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 46,
+  "fields": {
+    "title": "Сёмга",
+    "customer_title": "Сёмга"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 47,
+  "fields": {
+    "title": "Вегетарианская с сыром",
+    "customer_title": "Вегетарианская с сыром"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 48,
+  "fields": {
+    "title": "Говядина + курица",
+    "customer_title": "Говядина + курица"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 49,
+  "fields": {
+    "title": "Свинина+говядина",
+    "customer_title": "Свинина+говядина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 50,
+  "fields": {
+    "title": "Курица+свинина",
+    "customer_title": "Курица+свинина"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 51,
+  "fields": {
+    "title": "Сыр в лаваше",
+    "customer_title": "Сыр в лаваше"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 52,
+  "fields": {
+    "title": "Сыр в лаваше с говядиной",
+    "customer_title": "Сыр в лаваше с говядиной"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 53,
+  "fields": {
+    "title": "Сыр в лаваше с курицей",
+    "customer_title": "Сыр в лаваше с курицей"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 54,
+  "fields": {
+    "title": "Сыр в лаваше со свининой",
+    "customer_title": "Сыр в лаваше со свининой"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 55,
+  "fields": {
+    "title": "Эспрессо",
+    "customer_title": "Эспрессо"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 56,
+  "fields": {
+    "title": "Американо",
+    "customer_title": "Американо"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 57,
+  "fields": {
+    "title": "Капучино",
+    "customer_title": "Капучино"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 58,
+  "fields": {
+    "title": "Латте",
+    "customer_title": "Латте"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 59,
+  "fields": {
+    "title": "Горячий шоколад",
+    "customer_title": "Горячий шоколад"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 60,
+  "fields": {
+    "title": "Молочный шоколад",
+    "customer_title": "Молочный шоколад"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 61,
+  "fields": {
+    "title": "Молочный коктейль",
+    "customer_title": "Молочный коктейль"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 62,
+  "fields": {
+    "title": "Смузи",
+    "customer_title": "Смузи"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 63,
+  "fields": {
+    "title": "Грибы",
+    "customer_title": "Грибы"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 64,
+  "fields": {
+    "title": "Картофель фри",
+    "customer_title": "Картофель фри"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 65,
+  "fields": {
+    "title": "Картофель на углях",
+    "customer_title": "Картофель на углях"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 66,
+  "fields": {
+    "title": "Картофель по деревенски",
+    "customer_title": "Картофель по деревенски"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 67,
+  "fields": {
+    "title": "Комбо набор 6",
+    "customer_title": "Комбо набор 6"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 68,
+  "fields": {
+    "title": "Комбо набор 5",
+    "customer_title": "Комбо набор 5"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 69,
+  "fields": {
+    "title": "Комбо набор 4",
+    "customer_title": "Комбо набор 4"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 70,
+  "fields": {
+    "title": "Комбо набор 3",
+    "customer_title": "Комбо набор 3"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 71,
+  "fields": {
+    "title": "Комбо набор 1",
+    "customer_title": "Комбо набор 1"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 72,
+  "fields": {
+    "title": "Комбо набор 2",
+    "customer_title": "Комбо набор 2"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 73,
+  "fields": {
+    "title": "Морс облепиха",
+    "customer_title": "Морс облепиха"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 74,
+  "fields": {
+    "title": "Трайфл в ассортименте",
+    "customer_title": "Трайфл в ассортименте"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 75,
+  "fields": {
+    "title": "Индейка",
+    "customer_title": "Индейка"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 76,
+  "fields": {
+    "title": "Какао",
+    "customer_title": "Какао"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 77,
+  "fields": {
+    "title": "Мокачино",
+    "customer_title": "Мокачино"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 78,
+  "fields": {
+    "title": "Раф кофе",
+    "customer_title": "Раф кофе"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 79,
+  "fields": {
+    "title": "Овощной",
+    "customer_title": "Овощной"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 80,
+  "fields": {
+    "title": "Соус Heinz 250мл",
+    "customer_title": "Соус Heinz 250мл"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 81,
+  "fields": {
+    "title": "Соус ФРИ",
+    "customer_title": "Соус ФРИ"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 82,
+  "fields": {
+    "title": "Паста",
+    "customer_title": "Паста"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 83,
+  "fields": {
+    "title": "Пицца",
+    "customer_title": "Пицца"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 84,
+  "fields": {
+    "title": "Комбо наборы",
+    "customer_title": "Комбо наборы"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 85,
+  "fields": {
+    "title": "Шея",
+    "customer_title": "Шея"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 86,
+  "fields": {
+    "title": "Постная",
+    "customer_title": "Постная"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 87,
+  "fields": {
+    "title": "Тест",
+    "customer_title": "Тест"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 88,
+  "fields": {
+    "title": "Mix",
+    "customer_title": "Mix"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 89,
+  "fields": {
+    "title": "Детская",
+    "customer_title": "Детская"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 90,
+  "fields": {
+    "title": "десерт прочее",
+    "customer_title": "десерт прочее"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 91,
+  "fields": {
+    "title": "мариновка прочее",
+    "customer_title": "маринованное мясо прочее"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 92,
+  "fields": {
+    "title": "Чашушули",
+    "customer_title": "Чашушули"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 93,
+  "fields": {
+    "title": "Жульен",
+    "customer_title": "Жульен"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 94,
+  "fields": {
+    "title": "Оджахури по-грузински",
+    "customer_title": "Оджахури по-грузински"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 95,
+  "fields": {
+    "title": "Хачапури",
+    "customer_title": "Хачапури"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 96,
+  "fields": {
+    "title": "Говядина с рисом по азиатски",
+    "customer_title": "Говядина с рисом по азиатски"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 97,
+  "fields": {
+    "title": "Карбонара",
+    "customer_title": "Карбонара"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 98,
+  "fields": {
+    "title": "Болонезье",
+    "customer_title": "Болонезье"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 99,
+  "fields": {
+    "title": "Фарфалье",
+    "customer_title": "Фарфалье"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 100,
+  "fields": {
+    "title": "Пене",
+    "customer_title": "Пене"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 101,
+  "fields": {
+    "title": "Мясная",
+    "customer_title": "Мясная"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 102,
+  "fields": {
+    "title": "Ветчина грибы",
+    "customer_title": "Ветчина грибы"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 103,
+  "fields": {
+    "title": "Морепродукты",
+    "customer_title": "Морепродукты"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 104,
+  "fields": {
+    "title": "Пеперони",
+    "customer_title": "Пеперони"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 105,
+  "fields": {
+    "title": "Маргарита",
+    "customer_title": "Маргарита"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 106,
+  "fields": {
+    "title": "Чикен",
+    "customer_title": "Чикен"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 107,
+  "fields": {
+    "title": "Ламаджо",
+    "customer_title": "Ламаджо"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 108,
+  "fields": {
+    "title": "Жевательная резинка",
+    "customer_title": "Жевательная резинка"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 109,
+  "fields": {
+    "title": "Картофель",
+    "customer_title": "Картофель"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 110,
+  "fields": {
+    "title": "Лук",
+    "customer_title": "Лук"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 111,
+  "fields": {
+    "title": "Кальмар",
+    "customer_title": "Кальмар"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 112,
+  "fields": {
+    "title": "Моцарелла",
+    "customer_title": "Моцарелла"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 113,
+  "fields": {
+    "title": "Хлеб",
+    "customer_title": "Хлеб"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 114,
+  "fields": {
+    "title": "Греческий",
+    "customer_title": "Греческий"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 115,
+  "fields": {
+    "title": "Мангал",
+    "customer_title": "Мангал"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 116,
+  "fields": {
+    "title": "Цезарь с курицей",
+    "customer_title": "Цезарь с курицей"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 117,
+  "fields": {
+    "title": "Цезарь с креветками",
+    "customer_title": "Цезарь с креветками"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 118,
+  "fields": {
+    "title": "Том Ям",
+    "customer_title": "Том Ям"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 119,
+  "fields": {
+    "title": "Солянка",
+    "customer_title": "Солянка"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 120,
+  "fields": {
+    "title": "Угорь",
+    "customer_title": "Угорь"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 121,
+  "fields": {
+    "title": "Азиатский",
+    "customer_title": "Азиатский"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 122,
+  "fields": {
+    "title": "Борщ",
+    "customer_title": "Борщ"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 123,
+  "fields": {
+    "title": "Куриный с лапшой",
+    "customer_title": "Куриный с лапшой"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 124,
+  "fields": {
+    "title": "Сырный крем-суп с грибами",
+    "customer_title": "Сырный крем-суп с грибами"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 125,
+  "fields": {
+    "title": "Стейк",
+    "customer_title": "Стейк"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 126,
+  "fields": {
+    "title": "Сальса",
+    "customer_title": "Сальса"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 127,
+  "fields": {
+    "title": "Цезарь",
+    "customer_title": "Цезарь"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 128,
+  "fields": {
+    "title": "Лесник",
+    "customer_title": "Лесник"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 129,
+  "fields": {
+    "title": "4 сыра",
+    "customer_title": "4 сыра"
+  }
+},
+{
+  "model": "shaw_queue.contentoption",
+  "pk": 130,
+  "fields": {
+    "title": "Дъябло",
+    "customer_title": "Дъябло"
+  }
+}
+]

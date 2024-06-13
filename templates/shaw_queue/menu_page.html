@@ -1,0 +1,810 @@
+{% extends "shaw_queue/base.html" %}
+<title>Меню</title>
+{% block aditional_static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'queue/loader.css' %}">
+    <script type="text/javascript" src="{% static 'js/menu_handlers.js' %}"></script>
+    <script src="{% static 'js/jquery.maskedinput.js' %}" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey={{ geocoder_key }}&lang=ru_RU" type="text/javascript"></script>
+
+{% endblock %}
+{% block content %}
+    <input hidden id="menu-urls" data-status-refresh-url="{% url 'status_refresh' %}" data-search-comment="{% url 'search_comment' %}">
+    <input hidden id="is-modal" value="{{ is_modal }}">
+    <div class="modal" id="modal-edit">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <p id="item-title" class="modal-title">Title</p>
+            <p>
+                <label for="item-quantity" class="modal-label">Количество</label>
+                <input type="text" value="" class="quantityInput" id="item-quantity" onclick="this.setSelectionRange(0, this.value.length)">
+                <button class="btn info" id="plus-button">+</button>
+                <button class="btn info" id="minus-button">-</button>
+            <div class="quick-comment-container">
+                  {% for btn in noteBtns %}
+                        <button class="btn img-btn" title="{{ btn.note }}" id="note{{ btn.position }}"><img alt="" src="{{ btn.picture.url }}"></button>
+                  {% endfor %}
+
+
+{#                <button class="btn img-btn" id="cheese-button"><img alt="" src="{% static 'img/btns/cheese.png' %}"></button>#}
+{#                <button class="btn img-btn" id="greens-button"><img alt="" src="{% static 'img/btns/greens.png' %}"></button>#}
+{#                <button class="btn img-btn" id="spicy-button"><img alt="" src="{% static 'img/btns/spicy.png' %}"></button>#}
+{#                <button class="btn img-btn" id="spicy30-button"><img alt="" src="{% static 'img/btns/spicy30.png' %}"></button>#}
+{#                <button class="btn img-btn" id="yellow-button"><img alt="" src="{% static 'img/btns/yellow.png' %}"></button>#}
+{#                <button class="btn img-btn" id="noOnion-button"><img alt="" src="{% static 'img/btns/noOnion.png' %}"></button>#}
+{#                <button class="btn img-btn" id="saucePlus-button"><img alt="" src="{% static 'img/btns/saucePlus.png' %}"></button>#}
+{#                <button class="btn img-btn" id="sauceMinus-button"><img alt="" src="{% static 'img/btns/sauceMinus.png' %}"></button>#}
+{#                <button class="btn img-btn" id="noVegetables-button"><img alt="" src="{% static 'img/btns/noVegetables.png' %}"></button>#}
+{#                <button class="btn img-btn" id="frenchFries-button"><img alt="" src="{% static 'img/btns/frenchFries.png' %}"></button>#}
+{#                <button class="btn img-btn" id="chile-button"><img alt="" src="{% static 'img/btns/chile.png' %}"></button>#}
+{#                <button class="btn img-btn" id="mushrooms-button"><img alt="" src="{% static 'img/btns/mushrooms.png' %}"></button>#}
+{#                <button class="btn img-btn" id="jalapeno-button"><img alt="" src="{% static 'img/btns/jalapeno.png' %}"></button>#}
+{#                <button class="btn img-btn" id="bellPepper-button"><img alt="" src="{% static 'img/btns/bellPepper.png' %}"></button>#}
+            </div>
+            </p>
+            <p>
+                <label for="item-note" class="modal-label">Комментарий</label>
+                <input type="text" value="" class="live-search-box" id="item-note" list="popularNotes">
+                <datalist id="popularNotes">
+                    {% for note in popularNotes %}
+                        <option>{{ note.note }}</option>
+                    {% endfor %}
+                </datalist>
+            <div id="dropdown-list-container"></div>
+            </p>
+            <br>
+            <p>
+                <label title="QR" for="item-qr" class="modal-label"><img height="35" src="data:image/png;base64,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" /></label>
+                <input type="text" value="" class="live-search-box" id="item-qr" placeholder="QR код товара">
+            </p>
+        </div>
+    </div>
+    <div class="modal" id="modal-status">
+        <div class="modal-content">
+            {#            <span class="close" id="close-modal-status">&times;</span>#}
+            <div class="loader-container" id="loader-container">
+                <div class="loader" id="loading-indicator"></div>
+            </div>
+            <p class="status-display" id="status-display">
+                Статус...
+            </p>
+            <p class="modal-cash-input-container">
+                <label for="order-change" class="modal-label" id="order-change-label" hidden>Наличные</label>
+                <input type="text" value="" class="modal-quantity-input" id="order-change" onclick="this.setSelectionRange(0, this.value.length)" onkeyup="CalculateChange()" hidden>
+            </p>
+            <p class="status-display" id="change-display" hidden>
+                Сдача...
+            </p>
+            <p class="modal-buttons-container">
+                <button class="btn success" id="status-OK-button" onclick="OKHandeler()">OK</button>
+                <button class="btn danger" id="status-cancel-button" onclick="CancelHandler()">Отмена</button>
+                <button class="btn warning" id="status-retry-button" onclick="RetryHandler()">Повторить</button>
+                <button class="btn warning" id="status-retry-cash-button" onclick="RetryCashHandler()">Оплатить наличными</button>
+            </p>
+        </div>
+    </div>
+    <div class="menu-div">
+        {% include 'shaw_queue/menu.html' with menu_items=menu_items %}
+    </div>
+
+    <div class="order-div">
+        <table class="currentOrderTable" id="menu-order-display">
+            <thead>Содержание заказа
+            <tr>
+                <td class="currentOrderTotalText">
+                    <div>
+                        Итого
+                    </div>
+                </td>
+                <td class="currentOrderTotalFig">
+                    <div>
+                        <p class="totalDisplay">
+
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            </thead>
+
+            <tbody></tbody>
+            <tfoot>
+            <tr>
+                <td class="currentOrderTotalText">
+                    <div>
+                        Итого
+                    </div>
+                </td>
+                <td class="currentOrderTotalFig">
+                    <div>
+                        <p class="totalDisplay">
+
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <div class="shadowed">
+                    <p>
+                        <input type="radio" id="not_paid" checked value="not_paid" name="payment_choose">
+                        <label for="not_paid">Не Оплачен</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="paid_with_cash" value="paid_with_cash" name="payment_choose">
+                        <label for="paid_with_cash">Наличные</label>
+                        <button style="margin-left: 70px" type="button" class="subm small-btn success" data-send-url="{% url 'make_order' %}">
+                            Принять
+                        </button>
+                    </p>
+                    <p>
+                        <input type="radio" id="paid_without_cash" value="paid_without_cash" name="payment_choose">
+                        <label for="paid_without_cash">Безналичный</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="paid_with_sms" value="paid_with_sms" name="payment_choose" onchange="smsPay()">
+                        <label for="paid_with_sms">Оплата по СМС</label>
+                        <br>
+                    <div id="smsPay" hidden="hidden">
+                        <input type="tel" title="Телефон" placeholder="*Телефон" id="phone2">
+                        <button style="padding: 5px" class="form_button" onclick="SMS2()" title="отправить СМС">
+                            📩
+                        </button>
+                    </div>
+                    </p>
+                </div>
+                <div class="shadowed">
+                    <p>
+                        <input type="radio" id="cook_none" checked name="cook_choose" value="none">
+                        <label for="cook_none">Свободная очередь</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="cook_auto" checked name="cook_choose" value="auto">
+                        <label for="cook_auto">Автоназначение</label>
+                    </p>
+                    {% for available_cooker in available_cookers %}
+                        <p>
+                            <input type="radio" id="cook_{{ available_cooker.id }}" name="cook_choose" value="{{ available_cooker.id }}">
+                            <label for="cook_{{ available_cooker.id }}">{{ available_cooker.user.first_name }} {{ available_cooker.user.last_name }}</label>
+                        </p>
+                    {% endfor %}
+                </div>
+                <div class="shadowed">
+                    <p>
+                        <input type="radio" id="discount_5" name="discount" value="5">
+                        <label for="discount_5">Скидка 5%</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="discount_8" name="discount" value="8">
+                        <label for="discount_8">Скидка 8%</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="discount_10" name="discount" value="10">
+                        <label for="discount_10">Скидка 10%</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="discount_15" name="discount" value="15">
+                        <label for="discount_15">Скидка 15%</label>
+                    </p>
+                    <br>
+                    <br>
+                    <p>
+                        <input type="checkbox" id="preorder" name="preorder_checkbox" value="1">
+                        <label for="preorder_checkbox">Предзаказ</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="pickup" name="pickup_checkbox" value="1">
+                        <label for="pickup_checkbox">С собой</label>
+                    </p>
+                </div>
+                <div class="shadowed">
+                    <p>
+                        <input type="radio" id="cook_delivery" name="cook_choose" value="delivery" disabled>
+                        <label for="cook_auto" title="Доставка с оплатой через СМС">Доставка</label>
+                        <input type="text" id="delivery_daily_number" name="delivery_daily_number" value="" hidden="hidden">
+                    </p>
+                    <br>
+                    <p>
+                        <label>Добавить задержку</label>
+                        <br>
+                        <button class="small-btn success" onclick="add30()">+30 мин</button> <input style="margin-left: 20px" type="number" class="modal-quantity-input" id="holdMinutes" name="holdMinutes" min="0" max="120" step="5">
+                    </p>
+                    <br>
+{#                    <button title="Доставка с оплатой через СМС" id="delivery_sms" class="small-btn success" onclick="deliveryForm()">#}
+{#                        Заполнить форму доставки#}
+{#                    </button>#}
+                    <button hidden="hidden" id="delivery_sms_hide" class="small-btn" onclick="deliveryFormHide()">
+                        скрыть форму
+                    </button>
+                    <br>
+                    <br>
+                    </p>
+                </div>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div hidden="hidden" id="deliveryForm" style="position: absolute; top: 85%; right: 280px">
+
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+            html {
+                font-family: 'Montserrat', Arial, sans-serif;
+                -ms-text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+            }
+
+            button {
+                overflow: visible;
+            }
+
+            button, select {
+                text-transform: none;
+            }
+
+            button, input, select, textarea {
+                color: #5A5A5A;
+                font: inherit;
+                margin: 0;
+            }
+
+            input {
+                line-height: normal;
+            }
+
+            textarea {
+                overflow: auto;
+            }
+
+
+            .form {
+                padding: 37.5px;
+                margin: 10px 0;
+            }
+
+            h1 {
+                color: #474544;
+                font-size: 32px;
+                font-weight: 700;
+                letter-spacing: 7px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            input[type='text'], input[type='tel'], select, textarea {
+                background: none;
+                border: none;
+                border-bottom: solid 2px #474544;
+                color: #474544;
+                font-size: 1.000em;
+                font-weight: 400;
+                letter-spacing: 1px;
+                margin: 0em 0 1.875em 0;
+                padding: 0 0 0.875em 0;
+                text-transform: uppercase;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                -o-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -ms-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                transition: all 0.3s;
+            }
+
+            input[type='text']:focus, input[type='tel']:focus, textarea:focus {
+                outline: none;
+                padding: 0 0 0.875em 0;
+            }
+
+            .comment {
+                float: none;
+            }
+
+            .right45 {
+                float: right;
+                width: 45%;
+            }
+
+            .left45 {
+                float: left;
+                width: 45%;
+            }
+
+            .right15 {
+                float: right;
+                width: 15%;
+            }
+
+            .left75 {
+                float: left;
+                width: 75%;
+            }
+
+            .left20 {
+                float: left;
+                width: 20%;
+            }
+
+
+            select {
+                background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+                outline: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+            }
+
+            select::-ms-expand {
+                display: none;
+            }
+
+
+            textarea {
+                line-height: 150%;
+                height: 50px;
+                resize: none;
+                width: 100%;
+            }
+
+            ::-webkit-input-placeholder {
+                color: #474544;
+            }
+
+            :-moz-placeholder {
+                color: #474544;
+                opacity: 1;
+            }
+
+            ::-moz-placeholder {
+                color: #474544;
+                opacity: 1;
+            }
+
+            :-ms-input-placeholder {
+                color: #474544;
+            }
+
+            .form_button {
+                background: none;
+                border: solid 2px #474544;
+                color: #474544;
+                cursor: pointer;
+                display: inline-block;
+                font-family: 'Helvetica', Arial, sans-serif;
+                font-size: 0.875em;
+                font-weight: bold;
+                outline: none;
+                padding: 20px 35px;
+                text-transform: uppercase;
+                -webkit-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -ms-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                transition: all 0.3s;
+            }
+
+            .form_button:hover {
+                background: #474544;
+                color: #F2F3EB;
+            }
+
+            @media screen and (max-width: 480px) {
+                h1 {
+                    font-size: 26px;
+                }
+
+
+                .form_button {
+                    padding: 10px 20px;
+                }
+            }
+
+            @media screen and (max-width: 420px) {
+                h1 {
+                    font-size: 18px;
+                }
+
+
+                input[type='text'], [type='email'], select, textarea {
+                    font-size: 0.875em;
+                }
+            }
+        </style>
+
+        <div id="ymap" style="width: 100%; height: 400px; width: 730px;"></div>
+
+        <div class="right45">
+            <input id="delivery_price" disabled="" value="цена доставки: 0₽ км: 0" style="width: 400px">
+            <input id="full_price" disabled="" value="общая цена за заказ: 0₽">
+        </div>
+        <div class="form">
+            <input disabled="" value="* - обязательные поля" style="margin-bottom: 50px">
+            <div class="fullname left75">
+                <label for="fullname"></label>
+                <input type="text" placeholder="*Улица, дом" name="fullname" id="fullname" style="width: 100%">
+            </div>
+            <div class="right15">
+                <button class="form_button" onclick="getCoordinate()">на карте</button>
+                <input id="coordinate_input" style="font-size: 0.7rem;" disabled="" value="61.32650 55.17317">
+            </div>
+
+            <div style="margin-top: 50px">
+                <div class="left20">
+                    <input type="text" placeholder="Подъезд" name="porch" id="porch" style="width: 70%">
+                </div>
+                <div class="left20">
+                    <input type="text" placeholder="Домофон" name="door_code" id="door_code" style="width: 70%">
+                </div>
+                <div class="left20">
+                    <input type="text" placeholder="Этаж" name="sfloor" id="sfloor" style="width: 70%">
+                </div>
+                <div class="left20">
+                    <input type="text" placeholder="Квартира" name="sflat" id="sflat" style="width: 70%">
+                </div>
+            </div>
+
+            <div class="comment" style="margin-top: 100px">
+                <label for="comment"></label>
+                <textarea name="comment" placeholder="Комментарий для курьера" id="comment"></textarea>
+            </div>
+
+            <div class="left45">
+                <input type="tel" title="Телефон" placeholder="*Телефон" name="phone" id="phone">
+            </div>
+
+            <div class="right45">
+                <input type="text" placeholder="Имя" name="name" id="name">
+            </div>
+            <div style="margin-top: 38px">
+
+                <button style="padding: 23px" class="form_button" onclick="SMS()">
+                    <h1>📩</h1>
+                    <br>
+                    отправить СМС на оплату
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function smsPay() {
+            $('#smsPay').show()
+        }
+
+        function SMS2() {
+            let send_data = {
+                phone: $('#phone2').val(),
+                price: total
+            };
+            $.ajax({
+                type: 'POST',
+                url: '{% url 'api-sms-pay' %}',
+                data: send_data,
+                dataType: 'json',
+                success: function (res) {
+                    alert('СМС ушла')
+                },
+                error: function (xhr, errmsg, err) {
+                    alert('СМС не отправилось')
+                }
+            });
+        }
+
+
+        function add30() {
+            let holdMinutes = $('#holdMinutes')
+            holdMinutes.val(Number(holdMinutes.val()) + 30)
+        }
+
+        function deliveryForm() {
+            let cook_delivery = $('#cook_delivery')
+            cook_delivery.removeAttr('disabled')
+            cook_delivery.click()
+            $('#deliveryForm').show()
+            $('#delivery_sms_hide').show()
+            $('#delivery_sms').hide()
+            preorder_checkbox = $('[name=preorder_checkbox]');
+            pickup_checkbox = $('[name=pickup_checkbox]');
+            preorder_checkbox.prop("checked", false);
+            pickup_checkbox.prop("checked", false);
+        }
+
+        function deliveryFormHide() {
+            $('#cook_none').click()
+            $('#deliveryForm').hide()
+            $('#delivery_sms_hide').hide()
+            $('#delivery_sms').show()
+            $('#cook_delivery').attr("disabled", true);
+        }
+
+        function SMS() {
+            if (data['phone'] === null) {
+                alert('Заполните телефон!')
+            } else if (data['fullname'] === null) {
+                alert('Заполните улицу и дом!')
+            } else if (data['coordinates'] === null) {
+                alert('Укажите точку доставки на карте!')
+            } else if (data['full_price'] === null) {
+                alert('Что-то не так( \nПопробуйте перезагрузить страницу')
+            } else if (data['delivery_price'] === null) {
+                alert('Что-то не так( \nПопробуйте перезагрузить страницу')
+                {# } else if (data['pk_delivery'] === null) {#}
+                {#    alert('Что-то не так( \nПопробуйте перезагрузить страницу')#}
+            } else {
+                data['full_price'] = total
+                let wait_minutes = $('#holdMinutes').val()
+                if (wait_minutes !== '' && wait_minutes !== 0) {
+                    data['wait_minutes'] = wait_minutes
+                }
+                let send_data = data
+                send_data['order'] = JSON.stringify(currOrder)
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'api-delivery-sms' %}',
+                    data: send_data,
+                    dataType: 'json',
+                    success: function (res) {
+                        let delivery_daily_number = $('#delivery_daily_number')
+                        delivery_daily_number.show()
+                        delivery_daily_number.val('Д' + res['daily_number'])
+                        alert('СМС ушла')
+                    },
+                    error: function (xhr, errmsg, err) {
+                        alert('СМС не отправилось')
+                    }
+                });
+            }
+        }
+
+        let data = {
+            'delivery_price': null,
+            'full_price': null,
+            'fullname': null,
+            'coordinates': null,
+            'porch': null,
+            'door_code': null,
+            'sfloor': null,
+            'sflat': null,
+            'comment': null,
+            'phone': null,
+            'name': null,
+            {#'pk_delivery': null,#}
+        }
+
+        let delivery_price = $('#delivery_price');
+        let full_price = $('#full_price');
+
+        $('#name').change(function() {
+            data['name'] = $(this).val()
+        });
+        $('#phone').change(function() {
+            data['phone'] = $(this).val()
+        });
+        $('#comment').change(function() {
+            data['comment'] = $(this).val()
+        });
+        $('#porch').change(function() {
+            data['porch'] = $(this).val()
+        });
+        $('#sflat').change(function() {
+            data['sflat'] = $(this).val()
+        });
+        $('#sfloor').change(function() {
+            data['sfloor'] = $(this).val()
+        });
+        $('#door_code').change(function() {
+            data['door_code'] = $(this).val()
+        });
+        $('#fullname').change(function() {
+            data['fullname'] = $(this).val()
+        });
+
+        function getCoordinate(coords=null) {
+            window.scrollTo({
+                top: 500,
+                left: 0,
+                behavior: 'smooth'
+            });
+
+            let coordinate_input = $('#coordinate_input');
+            $.ajax({
+                url: "https://geocode-maps.yandex.ru/1.x/?apikey={{ geocoder_key }}&format=json&geocode=Челябинск, " + $('#fullname').val() + "&results=1",
+                type: "GET",
+                success: function (data) {
+                    if (data.response.GeoObjectCollection.metaDataProperty.GeocoderResponseMetaData.results === 0) {
+                        alert('Нет результатов')
+                    }
+                    {#console.log(data.response)#}
+                    let coordinates
+                    if (coords) {
+                        coordinates = coords
+                        coordinate_input.val([coords[0].toFixed(6), coords[1].toFixed(6)].join(' '))
+                    } else {
+                        coordinates = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
+                        coordinate_input.val(coordinates)
+                        coordinates = coordinates.split(' ', 2)
+                    }
+                    changePosition(coordinates)
+                },
+                error: function (xhr, errmsg, err) {
+                    alert("Что-то не так: " + errmsg);
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+            $("#phone").mask("+7(999)999-99-99");
+            $("#phone2").mask("+7(999)999-99-99");
+            ymaps.ready(init);
+            cleanDeliveryForm()
+
+            let now = new Date();
+            let current_hours = now.getHours()
+            if (current_hours < 11) {
+                let left_before_opening = (11 - current_hours) * 60 - now.getMinutes()
+                let lastDigit = left_before_opening % 10
+                let twoLastDigit = left_before_opening % 100
+                let lastWord = ' минут'
+                if (twoLastDigit > 20 || twoLastDigit < 10) {
+                    if (lastDigit === 1) {
+                        lastWord += 'а'
+                    } else if (lastDigit < 5 && lastDigit > 1) {
+                        lastWord += 'ы'
+                    }
+                }
+                alert('до открытия ' + left_before_opening + lastWord)
+                $('#holdMinutes').val(left_before_opening)
+            }
+        })
+
+        let myMap
+        let myPlacemark
+        let multiRoute
+
+        let zoom = 11
+        let duration = 700
+        let limit_positions = 500
+        let doZoom = true
+        let distance
+        let delivery_id
+        let res_distance_price = 0
+
+        function init() {
+            myMap = new ymaps.Map("ymap", {
+                center: [55.1540200, 61.3891500],
+                zoom: zoom
+            }, {
+                searchControlProvider: 'yandex#search'
+            });
+
+            let centerPlacemark = new ymaps.Placemark([55.168280, 61.386348], {
+                iconContent: '🌯',
+            }, {
+                preset: 'islands#darkOrangeIcon',
+            });
+            myMap.geoObjects.add(centerPlacemark);
+
+
+            myMap.events.add('click', function (e) {
+                var coords = e.get('coords');
+                doZoom = false
+                getCoordinate([coords[1], coords[0]])
+            });
+        }
+
+        function changePosition(coordinates) {
+            data['coordinates'] = coordinates
+            get_distance([55.168280, 61.386348], coordinates)
+
+            if (limit_positions === 0) {
+                alert('лимит запросов')
+                return
+            }
+            coordinates = [parseFloat(coordinates[1]), parseFloat(coordinates[0])]
+            myMap.geoObjects.remove(myPlacemark)
+            myPlacemark = new ymaps.Placemark(coordinates, {
+                iconContent: '🥣',
+            }, {
+                preset: 'islands#greenIcon'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+            if(doZoom) {
+                myMap.setZoom(zoom, {duration: duration});
+            }
+            setTimeout(() => {
+                myMap.panTo(coordinates, {duration: 700})
+            }, duration);
+
+            setTimeout(() => {
+                myMap.setCenter(coordinates)
+                if(doZoom) {
+                    myMap.setZoom(15, {duration: 700});
+                    limit_positions = limit_positions - 1;
+                }
+                zoom = 13
+                duration = 300
+                doZoom = true
+            }, duration + 700);
+
+            setTimeout(() => {
+                setPriceUnderMap(true)
+            }, 1000);
+
+        }
+
+        function setPriceUnderMap(new_delivery=false) {
+            if (new_delivery) {
+                if (delivery_id) {
+                    MinusOneItem(FindItem(delivery_id, ''))
+                }
+                res_distance_price = get_price(distance)
+            }
+
+            delivery_price.val('цена доставки: ' + res_distance_price + '₽  км: ' +  (distance/1000).toFixed(1))
+            full_price.val('общая цена за заказ: ' + total + '₽')
+            data['full_price'] = total
+            data['delivery_price'] = res_distance_price
+        }
+
+        function get_distance(coordinates1, coordinates2) {
+            myMap.geoObjects.remove(multiRoute);
+            multiRoute = new ymaps.multiRouter.MultiRoute({
+                referencePoints: [
+                    coordinates1,
+                    [coordinates2[1], coordinates2[0]]
+                ]
+            }, {
+                wayPointVisible: false,
+                boundsAutoApply: false
+            });
+
+            multiRoute.model.events.add('requestsuccess', function() {
+                var activeRoute = multiRoute.getActiveRoute();
+                distance = activeRoute.properties.get("distance").value
+                console.log("Длина: " + distance);
+                console.log("Время прохождения: " + activeRoute.properties.get("duration").text);
+            });
+            myMap.geoObjects.add(multiRoute);
+        }
+
+        function get_price(value) {
+            {{ delivery_js|safe }}
+        }
+
+        function cleanDeliveryForm() {
+            data = {
+                'delivery_price': null,
+                'full_price': null,
+                'fullname': null,
+                'coordinates': null,
+                'porch': null,
+                'door_code': null,
+                'sfloor': null,
+                'sflat': null,
+                'comment': null,
+                'phone': null,
+                'name': null,
+                {#'pk_delivery': null,#}
+            }
+
+            for (key in data) {
+                $('#' + key).val(data[key])
+            }
+
+            $('#cook_none').click()
+            $('#not_paid').click()
+            $('#cook_delivery').attr("disabled", true)
+            let delivery_daily_number = $('#delivery_daily_number')
+            delivery_daily_number.val(null)
+            delivery_daily_number.attr("disabled", true)
+            zoom = 11
+            res_distance_price = 0
+            delivery_id = null
+        }
+
+    
+    </script>
+
+{% endblock %}

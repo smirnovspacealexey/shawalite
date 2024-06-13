@@ -1,0 +1,240 @@
+{% csrf_token %}
+{% load static %}
+<title>Очередь покупателей</title>
+<link rel="stylesheet" type="text/css" href="{% static 'queue/style.css' %}">
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/buyer_queue_handlers.js' %}"></script>
+<script type="text/javascript">
+    {% if reload %}
+        function reloadPage() {
+            location.reload()
+        }
+        let reload = {{ reload }}
+        reload = reload * 60000
+        setTimeout(reloadPage, reload);
+    {% endif %}
+
+    {% if is_voicing %}
+        var is_voicing_page = true;
+    {% else %}
+        var is_voicing_page = false;
+    {% endif %}
+
+    {% if black %}
+        let black_color = true
+    {% else %}
+        let black_color = false
+    {% endif %}
+
+    document.addEventListener("click", function () {
+        let new_style = ''
+
+        if (!black_color) {
+            new_style = 'body{background-color: #000000;} div.open-order-display {color: #ffffff;}'
+        }
+        black_color = !black_color
+        document.getElementById("quene-style").innerHTML = new_style
+    });
+</script>
+{% if not is_voicing %}
+    <style>
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+        {% if px %}
+            span.order-display-number  {font-size: {{ px }}px;}
+        {% else %}
+            span.order-display-number  {font-size: 110px;}
+        {% endif %}
+
+        {% if new %}
+            div.open-orders-container, div.ready-orders-container {
+                width: 8%;
+                height: 100%;
+                float: left;
+                border-right: solid 2px #D8D8D8;
+                border-left: solid 2px #D8D8D8;
+            }
+
+            div.open-order-display, div.ready-order-display {
+                border-top: solid 0 #D8D8D8;
+                border-bottom: solid 0 #D8D8D8;
+            }
+        {% endif %}
+
+    </style>
+{% endif %}
+<style id="quene-style">
+    {% if black %}
+        body{background-color: #000000;} div.open-order-display {color: #ffffff;}
+    {% endif %}
+    {% if vertical %}
+        div.open-order-display, div.ready-order-display {font-size: 110px;}
+    {% endif %}
+</style>
+<input hidden id="urls" data-refresh-url="{% if vertical %}{% url 'buyer_queue_vertical_ajax' %}{% elif new %}{% url 'buyer_queue_ajax_new' %}{% else %}{% url 'buyer_queue_ajax' %}{% endif %}" data-unvoice-url="{% url 'unvoice_order' %}">
+{% include 'shaw_queue/buyer_queue_ajax.html' %}
+
+{% if not vertical %}
+
+    {% if new %}
+        <div class="thumb-wrap">
+            <iframe width="1280" height="720" src="https://www.youtube.com/embed/D4rL1lkeqOo?autoplay=1&mute=1" title="ULD GYMKHANA 2022 PART II" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+        <style>
+            .thumb-wrap {
+                position: relative;
+                padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+                height: 0;
+                overflow: hidden;
+            }
+            .thumb-wrap iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-width: 0;
+                outline-width: 0;
+            }
+        </style>
+
+
+        <br/>
+    {% else %}
+
+        {% if not is_voicing %}
+            <div class="carousel-container">
+                <div id="carousels">
+                    {% for image in carousel_images %}
+                        <div class="carousel"><img class="carousel-image" src="{{ image }}"></div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if not new %}
+
+        <audio controls id="speaker-0">
+            <source src="{% static 'audio/0.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-1">
+            <source src="{% static 'audio/1.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-2">
+            <source src="{% static 'audio/2.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-3">
+            <source src="{% static 'audio/3.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-4">
+            <source src="{% static 'audio/4.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-5">
+            <source src="{% static 'audio/5.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-6">
+            <source src="{% static 'audio/6.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-7">
+            <source src="{% static 'audio/7.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-8">
+            <source src="{% static 'audio/8.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-9">
+            <source src="{% static 'audio/9.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-10">
+            <source src="{% static 'audio/10.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-11">
+            <source src="{% static 'audio/11.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-12">
+            <source src="{% static 'audio/12.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-13">
+            <source src="{% static 'audio/13.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-14">
+            <source src="{% static 'audio/14.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-15">
+            <source src="{% static 'audio/15.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-16">
+            <source src="{% static 'audio/16.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-17">
+            <source src="{% static 'audio/17.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-18">
+            <source src="{% static 'audio/18.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-19">
+            <source src="{% static 'audio/19.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-20">
+            <source src="{% static 'audio/20.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-30">
+            <source src="{% static 'audio/30.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-40">
+            <source src="{% static 'audio/40.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-50">
+            <source src="{% static 'audio/50.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-60">
+            <source src="{% static 'audio/60.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-70">
+            <source src="{% static 'audio/70.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-80">
+            <source src="{% static 'audio/80.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-90">
+            <source src="{% static 'audio/90.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-100">
+            <source src="{% static 'audio/100.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-200">
+            <source src="{% static 'audio/200.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-300">
+            <source src="{% static 'audio/300.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-400">
+            <source src="{% static 'audio/400.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-500">
+            <source src="{% static 'audio/500.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-600">
+            <source src="{% static 'audio/600.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-700">
+            <source src="{% static 'audio/700.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-800">
+            <source src="{% static 'audio/800.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-900">
+            <source src="{% static 'audio/900.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-order">
+            <source src="{% static 'audio/order.opus' %}" type="audio/ogg">
+        </audio>
+        <audio controls id="speaker-number">
+            <source src="{% static 'audio/number.opus' %}" type="audio/ogg">
+        </audio>
+    {% endif %}
+{% endif %}

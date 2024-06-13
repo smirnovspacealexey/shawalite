@@ -1,0 +1,572 @@
+{% extends "shaw_queue/base.html" %}
+<title>Меню</title>
+{% block aditional_static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'queue/loader.css' %}">
+    <script type="text/javascript" src="{% static 'js/menu_handlers.js' %}"></script>
+    <script src="{% static 'js/jquery.maskedinput.js' %}" type="text/javascript"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+        html {
+            font-family: 'Montserrat', Arial, sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: #F2F3EB;
+        }
+
+        button {
+            overflow: visible;
+        }
+
+        button, select {
+            text-transform: none;
+        }
+
+        button, input, select, textarea {
+            color: #5A5A5A;
+            font: inherit;
+            margin: 0;
+        }
+
+        input {
+            line-height: normal;
+        }
+
+        textarea {
+            overflow: auto;
+        }
+
+        #container {
+            border: solid 3px #474544;
+            max-width: 768px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .form {
+            padding: 37.5px;
+            margin: 10px 0;
+        }
+
+        h1 {
+            color: #474544;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 7px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .icon_wrapper {
+            margin: 50px auto 0;
+            width: 100%;
+        }
+
+        .icon {
+            display: block;
+            fill: #474544;
+            height: 50px;
+            margin: 0 auto;
+            width: 50px;
+        }
+
+        input[type='text'], input[type='tel'], select, textarea {
+            background: none;
+            border: none;
+            border-bottom: solid 2px #474544;
+            color: #474544;
+            font-size: 1.000em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 0em 0 1.875em 0;
+            padding: 0 0 0.875em 0;
+            text-transform: uppercase;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            -o-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        input[type='text']:focus, input[type='tel']:focus, textarea:focus {
+            outline: none;
+            padding: 0 0 0.875em 0;
+        }
+
+        .comment {
+            float: none;
+        }
+
+        .right45 {
+            float: right;
+            width: 45%;
+        }
+
+        .left45 {
+            float: left;
+            width: 45%;
+        }
+
+        .right15 {
+            float: right;
+            width: 15%;
+        }
+
+        .left75 {
+            float: left;
+            width: 75%;
+        }
+
+        .left20 {
+            float: left;
+            width: 20%;
+        }
+
+
+        select {
+            background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+            outline: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        .subject {
+            width: 100%;
+        }
+
+        textarea {
+            line-height: 150%;
+            height: 50px;
+            resize: none;
+            width: 100%;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #474544;
+        }
+
+        :-moz-placeholder {
+            color: #474544;
+            opacity: 1;
+        }
+
+        ::-moz-placeholder {
+            color: #474544;
+            opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+            color: #474544;
+        }
+
+        .form_button {
+            background: none;
+            border: solid 2px #474544;
+            color: #474544;
+            cursor: pointer;
+            display: inline-block;
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 0.875em;
+            font-weight: bold;
+            outline: none;
+            padding: 20px 35px;
+            text-transform: uppercase;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .form_button:hover {
+            background: #474544;
+            color: #F2F3EB;
+        }
+
+        @media screen and (max-width: 768px) {
+            #container {
+                margin: 20px auto;
+                width: 95%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 26px;
+            }
+
+            .underline {
+                width: 68px;
+            }
+
+            .form_button {
+                padding: 10px 20px;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            h1 {
+                font-size: 18px;
+            }
+
+            .icon {
+                height: 35px;
+                width: 35px;
+            }
+
+            .underline {
+                width: 53px;
+            }
+
+            input[type='text'], [type='email'], select, textarea {
+                font-size: 0.875em;
+            }
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div id="container">
+        <div id="ymap" style="width: 100%; height: 400px; width: 760px"></div>
+
+        {#        <h1>🌯 Форма доставки 🥣</h1>#}
+        {#        <div class="underline">#}
+        {#        </div>#}
+
+        <div class="right45">
+            <input id="delivery_price" disabled="" value="цена доставки: 0₽ км: 0" style="width: 400px">
+            <input id="full_price" disabled="" value="общая цена за заказ: {{ order_price }}₽">
+        </div>
+
+        <div class="form">
+            <input disabled="" value="* - обязательные поля" style="margin-bottom: 50px">
+            <div class="fullname left75">
+                <label for="fullname"></label>
+                <input type="text" placeholder="*Улица, дом" name="fullname" id="fullname" style="width: 100%">
+            </div>
+            <div class="right15">
+                <button class="form_button" onclick="getCoordinate()">на карте</button>
+                <input id="coordinate_input" style="font-size: 0.7rem;" disabled="" value="61.32650 55.17317">
+            </div>
+
+            <div style="margin-top: 50px">
+                <div class="left20">
+                    <input type="text" placeholder="Подъезд" name="porch" id="porch" style="width: 70%">
+                </div>
+                <div class="left20">
+                    <input type="text" placeholder="Домофон" name="door_code" id="door_code" style="width: 70%">
+                </div>
+                <div class="left20">
+                    <input type="text" placeholder="Этаж" name="sfloor" id="sfloor" style="width: 70%">
+                </div>
+                <div class="left20">
+                    <input type="text" placeholder="Квартира" name="sflat" id="sflat" style="width: 70%">
+                </div>
+            </div>
+
+            <div class="comment" style="margin-top: 100px">
+                <label for="comment"></label>
+                <textarea name="comment" placeholder="Комментарий для курьера" id="comment"></textarea>
+            </div>
+
+            <div class="left45">
+                <input type="tel" title="Телефон" placeholder="*Телефон" name="phone" id="phone">
+            </div>
+
+            <div class="right45">
+                <input type="text" placeholder="Имя" name="name" id="name">
+            </div>
+            {#            <div class="subject">#}
+            {#                <label for="subject"></label>#}
+            {#                <select placeholder="Subject line" name="subject" id="subject_input">#}
+            {#                    <option disabled hidden selected>Subject line</option>#}
+            {#                    <option>I'd like to start a project</option>#}
+            {#                    <option>I'd like to ask a question</option>#}
+            {#                    <option>I'd like to make a proposal</option>#}
+            {#                </select>#}
+            {#            </div>#}
+
+            <div style="margin-top: 38px">
+                <div class="left45">
+                    <a class="form_button" href="/shaw_queue/menu/" onclick="addDataToCookie()">назад</a>
+                </div>
+
+                <button style="padding: 23px" class="form_button" onclick="SMS()">
+                    <h1>📩</h1>
+                    <br>
+                    отправить СМС на оплату
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey={{ geocoder_key }}&lang=ru_RU" type="text/javascript"></script>
+    <script>
+        function addDataToCookie() {
+            if (save_data_to_storage) {
+                sessionStorage.setItem('deliveryData', JSON.stringify(data));
+            }
+        }
+
+        function SMS() {
+            if (data['phone'] === null) {
+                alert('Заполните телефон!')
+            } else if (data['fullname'] === null) {
+                alert('Заполните улицу и дом!')
+            } else if (data['coordinates'] === null) {
+                alert('Укажите точку доставки на карте!')
+            } else if (data['full_price'] === null) {
+                alert('Что-то не так( \nПопробуйте перезагрузить страницу')
+            } else if (data['delivery_price'] === null) {
+                alert('Что-то не так( \nПопробуйте перезагрузить страницу')
+            } else if (data['pk_delivery'] === null) {
+                alert('Что-то не так( \nПопробуйте перезагрузить страницу')
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'api-delivery-sms' %}',
+                    data: data,
+                    dataType: 'json',
+                    success: function (res) {
+                        $.cookie('is_delivery','true', { path: '/' });
+                        $.cookie('daily_number',res['daily_number'], { path: '/' });
+                        save_data_to_storage = false
+                        sessionStorage.removeItem('deliveryData')
+
+                        let cookieCurrOrder = $.cookie('currOrder');
+                        let resCurrOrder = eval(cookieCurrOrder);
+                        resCurrOrder.push({
+                            'id': res['pk'],
+                            'title': res['title'],
+                            'price': res['price'],
+                            'quantity': res['quantity'],
+                            'note': res['note'],
+                        })
+                        cookieCurrOrder = JSON.stringify(resCurrOrder);
+                        $.cookie('currOrder', cookieCurrOrder, { path: '/' });
+                        alert('СМС ушла')
+                    },
+                    error: function (xhr, errmsg, err) {
+                        alert('СМС не отправилось')
+                    }
+                });
+            }
+
+        }
+
+        let data = {
+            'delivery_price': null,
+            'full_price': null,
+            'fullname': null,
+            'coordinates': null,
+            'porch': null,
+            'door_code': null,
+            'sfloor': null,
+            'sflat': null,
+            'comment': null,
+            'phone': null,
+            'name': null,
+            'pk_delivery': null,
+        }
+
+        let save_data_to_storage = true;
+        let delivery_price = $('#delivery_price');
+        let full_price = $('#full_price');
+
+        $('#name').change(function() {
+            data['name'] = $(this).val()
+        });
+        $('#phone').change(function() {
+            data['phone'] = $(this).val()
+        });
+        $('#comment').change(function() {
+            data['comment'] = $(this).val()
+        });
+        $('#porch').change(function() {
+            data['porch'] = $(this).val()
+        });
+        $('#sflat').change(function() {
+            data['sflat'] = $(this).val()
+        });
+        $('#sfloor').change(function() {
+            data['sfloor'] = $(this).val()
+        });
+        $('#door_code').change(function() {
+            data['door_code'] = $(this).val()
+        });
+        $('#fullname').change(function() {
+            data['fullname'] = $(this).val()
+        });
+
+
+        $(document).ready(function () {
+            $("#phone").mask("+7(999)999-99-99");
+            let deliveryData = JSON.parse(sessionStorage.getItem('deliveryData'));
+            if (deliveryData) {
+                data = deliveryData
+                for (key in data) {
+                    $('#' + key).val(data[key])
+                }
+                $('#coordinate_input').val([data['coordinates'][0].toFixed(6), data['coordinates'][1].toFixed(6)].join(' '))
+            }
+        })
+
+        function getCoordinate(coords=null) {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+            let fullname = $('#fullname');
+            let coordinate_input = $('#coordinate_input');
+            $.ajax({
+                url: "https://geocode-maps.yandex.ru/1.x/?apikey={{ geocoder_key }}&format=json&geocode=Челябинск, " + fullname.val() + "&results=1",
+                type: "GET",
+                success: function (data) {
+                    if (data.response.GeoObjectCollection.metaDataProperty.GeocoderResponseMetaData.results === 0) {
+                        alert('Нет результатов')
+                    }
+                    {#console.log(data.response)#}
+                    let coordinates
+                    if (coords) {
+                        coordinates = coords
+                        coordinate_input.val([coords[0].toFixed(6), coords[1].toFixed(6)].join(' '))
+                    } else {
+                        coordinates = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
+                        coordinate_input.val(coordinates)
+                        coordinates = coordinates.split(' ', 2)
+                    }
+                    changePosition(coordinates)
+                },
+                error: function (xhr, errmsg, err) {
+                    alert("Что-то не так: " + errmsg);
+                }
+            });
+        }
+
+        ymaps.ready(init);
+        let myMap
+        let myPlacemark
+        let multiRoute
+
+        let zoom = 11
+        let duration = 700
+        let limit_positions = 15
+        let doZoom = true
+        let distance
+
+        let order_price = {{ order_price }}
+
+            function init() {
+                myMap = new ymaps.Map("ymap", {
+                    center: [55.1540200, 61.3891500],
+                    zoom: zoom
+                }, {
+                    searchControlProvider: 'yandex#search'
+                });
+
+                let centerPlacemark = new ymaps.Placemark([55.168280, 61.386348], {
+                    iconContent: '🌯',
+
+                }, {
+                    preset: 'islands#darkOrangeIcon',
+                });
+                myMap.geoObjects.add(centerPlacemark);
+
+
+                myMap.events.add('click', function (e) {
+                    var coords = e.get('coords');
+                    doZoom = false
+                    getCoordinate([coords[1], coords[0]])
+                });
+            }
+
+        function changePosition(coordinates) {
+            data['coordinates'] = coordinates
+            get_distance([55.168280, 61.386348], coordinates)
+
+            if (limit_positions === 0) {
+                alert('лимит запросов')
+                return
+            }
+            coordinates = [parseFloat(coordinates[1]), parseFloat(coordinates[0])]
+            myMap.geoObjects.remove(myPlacemark)
+            myPlacemark = new ymaps.Placemark(coordinates, {
+                iconContent: '🥣',
+            }, {
+                preset: 'islands#greenIcon'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+            if(doZoom) {
+                myMap.setZoom(zoom, {duration: duration});
+            }
+            setTimeout(() => {
+                myMap.panTo(coordinates, {duration: 700})
+            }, duration);
+
+            setTimeout(() => {
+                myMap.setCenter(coordinates)
+                if(doZoom) {
+                    myMap.setZoom(15, {duration: 700});
+                    limit_positions = limit_positions - 1;
+                }
+                zoom = 13
+                duration = 300
+                doZoom = true
+            }, duration + 700);
+
+            setTimeout(() => {
+                let res_distance_price = get_price(distance)
+                let res_full_price = res_distance_price + order_price
+                delivery_price.val('цена доставки: ' + res_distance_price + '₽  км: ' +  (distance/1000).toFixed(1))
+                full_price.val('общая цена за заказ: ' + res_full_price + '₽')
+                data['full_price'] = res_full_price
+                data['delivery_price'] = res_distance_price
+            }, 1000);
+
+        }
+
+        function get_distance(coordinates1, coordinates2) {
+            myMap.geoObjects.remove(multiRoute);
+            multiRoute = new ymaps.multiRouter.MultiRoute({
+                referencePoints: [
+                    coordinates1,
+                    [coordinates2[1], coordinates2[0]]
+                ]
+            }, {
+                wayPointVisible: false,
+                boundsAutoApply: false
+            });
+
+            multiRoute.model.events.add('requestsuccess', function() {
+                var activeRoute = multiRoute.getActiveRoute();
+                distance = activeRoute.properties.get("distance").value
+                console.log("Длина: " + distance);
+                console.log("Время прохождения: " + activeRoute.properties.get("duration").text);
+            });
+            myMap.geoObjects.add(multiRoute);
+        }
+
+        function get_price(value) {
+            {{ delivery_js|safe }}
+        }
+    </script>
+
+{% endblock %}

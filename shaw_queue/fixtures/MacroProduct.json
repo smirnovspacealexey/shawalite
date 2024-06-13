@@ -1,0 +1,236 @@
+[
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 1,
+  "fields": {
+    "title": "Шаурма",
+    "customer_title": "Шаурма",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 2,
+  "fields": {
+    "title": "Шашлык",
+    "customer_title": "Шашлык",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 5,
+  "fields": {
+    "title": "Бурум",
+    "customer_title": "Бурум",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 10,
+  "fields": {
+    "title": "Прочее",
+    "customer_title": "Прочее",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 14,
+  "fields": {
+    "title": "Редкое",
+    "customer_title": "Редкое",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 15,
+  "fields": {
+    "title": "Добавки",
+    "customer_title": "Добавки",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 17,
+  "fields": {
+    "title": "Холодные напитки",
+    "customer_title": "Холодные напитки",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 18,
+  "fields": {
+    "title": "Горячие напитки",
+    "customer_title": "Горячие напитки",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 19,
+  "fields": {
+    "title": "Люля-кебаб",
+    "customer_title": "Люля-кебаб",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 20,
+  "fields": {
+    "title": "Гарниры",
+    "customer_title": "Гарниры",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 21,
+  "fields": {
+    "title": "Салаты",
+    "customer_title": "Салаты",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 22,
+  "fields": {
+    "title": "Дёнер",
+    "customer_title": "Дёнер",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 23,
+  "fields": {
+    "title": "Десерты",
+    "customer_title": "Десерты",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 24,
+  "fields": {
+    "title": "Маринованное мясо/Заготовки",
+    "customer_title": "Маринованное мясо/Заготовки",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 25,
+  "fields": {
+    "title": "Фарш люля-кебаб удалить",
+    "customer_title": "Фарш люля-кебаб удалить",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 26,
+  "fields": {
+    "title": "Люля кебаб в буруме",
+    "customer_title": "Люля кебаб в буруме",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 27,
+  "fields": {
+    "title": "Дополнительно",
+    "customer_title": "Дополнительно",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 28,
+  "fields": {
+    "title": "Комбо наборы",
+    "customer_title": "Комбо наборы",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 29,
+  "fields": {
+    "title": "Супы",
+    "customer_title": "Супы",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 30,
+  "fields": {
+    "title": "Пицца",
+    "customer_title": "Пицца",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 31,
+  "fields": {
+    "title": "Паста",
+    "customer_title": "Паста",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 32,
+  "fields": {
+    "title": "Горячие блюда",
+    "customer_title": "Горячие блюда",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 33,
+  "fields": {
+    "title": "H1",
+    "customer_title": "H1",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 34,
+  "fields": {
+    "title": "Бургеры",
+    "customer_title": "Бургеры",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 35,
+  "fields": {
+    "title": "Блюда во фритюре",
+    "customer_title": "Блюда во фритюре",
+    "icon": ""
+  }
+},
+{
+  "model": "shaw_queue.macroproduct",
+  "pk": 36,
+  "fields": {
+    "title": "Соус",
+    "customer_title": "Соус",
+    "icon": ""
+  }
+}
+]

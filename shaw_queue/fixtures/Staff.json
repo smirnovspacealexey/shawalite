@@ -1,0 +1,1276 @@
+[
+{
+  "model": "shaw_queue.staff",
+  "pk": 1,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 2,
+    "service_point": null,
+    "phone_number": "123"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 2,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 3,
+    "service_point": 11,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 3,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 4,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 5,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 6,
+    "service_point": 12,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 6,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 7,
+    "service_point": 5,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 7,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 8,
+    "service_point": 2,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 8,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 9,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 9,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 10,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 10,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 11,
+    "service_point": 2,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 11,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 12,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 12,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 13,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 13,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 14,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 14,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 15,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 15,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 16,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 16,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 17,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 17,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 18,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 18,
+  "fields": {
+    "staff_category": 4,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 19,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 19,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 20,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 20,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 21,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 21,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 22,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 22,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 23,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 23,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 24,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 24,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 25,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 25,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 26,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 26,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 27,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 27,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 28,
+    "service_point": 2,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 28,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 29,
+    "service_point": 2,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 29,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 30,
+    "service_point": 13,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 30,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 31,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 31,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 32,
+    "service_point": 1,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 32,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 33,
+    "service_point": 2,
+    "phone_number": "101"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 33,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 34,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 34,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 35,
+    "service_point": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 35,
+  "fields": {
+    "staff_category": 6,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 36,
+    "service_point": 2,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 36,
+  "fields": {
+    "staff_category": 7,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 37,
+    "service_point": 2,
+    "phone_number": null
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 37,
+  "fields": {
+    "staff_category": 6,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 38,
+    "service_point": 1,
+    "phone_number": "203"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 38,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 39,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 39,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 40,
+    "service_point": 2,
+    "phone_number": "102"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 40,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 41,
+    "service_point": 1,
+    "phone_number": "201"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 41,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 42,
+    "service_point": 1,
+    "phone_number": "202"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 42,
+  "fields": {
+    "staff_category": 6,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 43,
+    "service_point": 1,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 43,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 44,
+    "service_point": null,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 44,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 45,
+    "service_point": null,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 45,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 46,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 46,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 47,
+    "service_point": 5,
+    "phone_number": "301"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 47,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 48,
+    "service_point": 5,
+    "phone_number": "302"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 48,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 50,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 49,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 51,
+    "service_point": 10,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 50,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 49,
+    "service_point": 13,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 51,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 52,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 52,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 53,
+    "service_point": 6,
+    "phone_number": "901"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 53,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 54,
+    "service_point": 6,
+    "phone_number": "902"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 54,
+  "fields": {
+    "staff_category": 8,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 55,
+    "service_point": 6,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 55,
+  "fields": {
+    "staff_category": 9,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 56,
+    "service_point": 1,
+    "phone_number": "-1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 56,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 57,
+    "service_point": null,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 57,
+  "fields": {
+    "staff_category": 6,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 58,
+    "service_point": 13,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 58,
+  "fields": {
+    "staff_category": 6,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 59,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 59,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 60,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 60,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 63,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 61,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 61,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 62,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 62,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 63,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 64,
+    "service_point": null,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 64,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 65,
+    "service_point": null,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 65,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 66,
+    "service_point": null,
+    "phone_number": "766"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 66,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 67,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 67,
+  "fields": {
+    "staff_category": 6,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 68,
+    "service_point": 5,
+    "phone_number": "+7 951 485-18-33"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 68,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 70,
+    "service_point": 10,
+    "phone_number": "601"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 69,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 71,
+    "service_point": 11,
+    "phone_number": "701"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 70,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 72,
+    "service_point": 12,
+    "phone_number": "801"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 71,
+  "fields": {
+    "staff_category": 1,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 73,
+    "service_point": 10,
+    "phone_number": "602"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 72,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 74,
+    "service_point": 11,
+    "phone_number": "701"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 73,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 75,
+    "service_point": 12,
+    "phone_number": "801"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 74,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 76,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 75,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 77,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 76,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 78,
+    "service_point": 1,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 77,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 79,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 78,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 80,
+    "service_point": 13,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 79,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 83,
+    "service_point": 1,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 80,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 82,
+    "service_point": 10,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 81,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 84,
+    "service_point": 13,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 82,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 85,
+    "service_point": 5,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 83,
+  "fields": {
+    "staff_category": 6,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 86,
+    "service_point": 10,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 84,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 88,
+    "service_point": 1,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 85,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 87,
+    "service_point": 13,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 86,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 89,
+    "service_point": 8,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 87,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 90,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 88,
+  "fields": {
+    "staff_category": 1,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 91,
+    "service_point": 2,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 89,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 92,
+    "service_point": 13,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 90,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 93,
+    "service_point": 1,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 91,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 94,
+    "service_point": null,
+    "phone_number": "12"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 92,
+  "fields": {
+    "staff_category": 3,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 95,
+    "service_point": 10,
+    "phone_number": "2"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 93,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 96,
+    "service_point": 2,
+    "phone_number": "12"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 94,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 97,
+    "service_point": 10,
+    "phone_number": "1"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 95,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 98,
+    "service_point": 10,
+    "phone_number": "2"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 96,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 99,
+    "service_point": 1,
+    "phone_number": "3"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 97,
+  "fields": {
+    "staff_category": 2,
+    "available": false,
+    "fired": false,
+    "super_guy": false,
+    "user": 100,
+    "service_point": 13,
+    "phone_number": "4"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 98,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 101,
+    "service_point": 2,
+    "phone_number": "4"
+  }
+},
+{
+  "model": "shaw_queue.staff",
+  "pk": 99,
+  "fields": {
+    "staff_category": 2,
+    "available": true,
+    "fired": false,
+    "super_guy": false,
+    "user": 102,
+    "service_point": 2,
+    "phone_number": "34"
+  }
+}
+]

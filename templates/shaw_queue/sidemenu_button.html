@@ -1,0 +1,24 @@
+<div class="sidemenu__button pad-menu__button">
+    <a class="sidemenu__icon" href="#{{ macro_product.id|slugify }}" onclick="ClearToppings()">
+        {% if macro_product.item.icon %}
+            <img height="30px" src="{{ macro_product.item.icon.url }}" alt="icon"/>
+        {% else %}
+            <h2>🍽</h2>
+        {% endif %}
+    </a>
+    <div class="sidemenu__title">
+        <a class="sidemenu__category-title" href="#{{ macro_product.id|slugify }}"
+           onclick="ClearToppings()">
+            {{ macro_product.item.title }}
+        </a>
+        {#        <div class="sidemenu__subcategories">#}
+        {#            {% for content_option in macro_product.content_options %}#}
+        {#                <a class="sidemenu__subcategory" href="#{{ content_option.id|slugify }}"#}
+        {#                   onclick="ClearToppings()">#}
+        {#                    {{ content_option.display_title }}#}
+        {#                </a>#}
+        {#            {% endfor %}#}
+        {#        </div>#}
+
+    </div>
+</div>

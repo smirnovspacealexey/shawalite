@@ -1,0 +1,96 @@
+{% extends 'shaw_queue/base.html' %}
+{% block aditional_static %}
+    {% load static %}
+    <script type="text/javascript" src="{% static 'js/delivery_handlers.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/menu_handlers.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.datetimepicker.full.js' %}"></script>
+    <script type="text/javascript">
+        var interface_button = $("#statistics_interface");
+    </script>
+    <link rel="stylesheet" type="text/css" href={% static 'queue/jquery.datetimepicker.min.css' %}>
+{% endblock %}
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@19.4.2/dist/css/suggestions.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@19.4.2/dist/js/jquery.suggestions.min.js"></script>
+    <input id="delivery-urls" hidden data-close-delivery-order-url="" order-specifics-url=""
+           incoming-call-url="{% url 'incoming-call' %}" check-calls-url="{% url 'check_calls' %}"
+           data-cancel-delivery-order-url="" create-order-url="{% url 'delivery-order-ajax' %}"
+           menu-url="{% url 'menu' %}" delivery-url="{% url 'delivery' %}" select-cook-url="{% url 'select_cook' %}"
+           workspace-update="{% url 'delivery-workspace-update' %}" change-cook-url="{% url 'change_cook' %}"
+           start-shawarma-preparation-url="{% url 'start_shawarma_preparation' %}"
+           start-shawarma-cooking-url="{% url 'start_shawarma_cooking' %}"
+           start-shashlyk-cooking-url="{% url 'start_shashlyk_cooking' %}"
+           finish-shashlyk-cooking-url="{% url 'finish_shashlyk_cooking' %}"
+           finish-delivery-order-url="{% url 'finish_delivery_order' %}"
+           check-delivery-order-url="{% url 'check_delivery_order' %}"
+           cancel-delivery-order-url="{% url 'cancel_delivery_order' %}"
+           deliver-delivery-order-url="{% url 'deliver_delivery_order' %}"
+           print-delivery-order-url="{% url 'delivery_order_print' %}"
+           start-delivery-url="{% url 'start_delivery' %}"
+           cancel-delivery-url="{% url 'cancel_delivery' %}">
+    <input hidden id="current-order-data" customer-pk="-1">
+    <div class="modal" id="modal-menu" {% comment %}onclick="HideMenu()"{% endcomment %}>
+    </div>
+    <div class="modal" id="modal-delivery-order" {% comment %}onclick="HideDeliveryOrder()"{% endcomment %}>
+    </div>
+    {#    <button id="show-left-column" class="btn info" onclick="ShowSidebar('delivery-left-column', 'show-left-column')"#}
+    {#            style="height: 100%; float: left; width: 0px" hidden>#}
+    {#        &raquo;#}
+    {#    </button>#}
+    <div id="delivery-left-column" class="sidebar sidebar_left">
+        <div class="sidebar__content">
+            <div class="section">
+                <div class="section__title">
+                    Рейсы доставки
+                </div>
+                <div class="section__content" id="delivery-left-column-content">
+                    {% include 'shaw_queue/delivery_left_col_content.html' with delivery_info=delivery_info %}
+                </div>
+                <button class="btn success" onclick="CreateDelivery()" style="width: 100%">&plus;</button>
+            </div>
+            <button class="btn info sidebar__close-btn"
+                    onclick="HideSidebar('delivery-left-column', 'show-left-column')">
+                &laquo;
+            </button>
+        </div>
+        <button id="show-left-column" class="btn info sidebar__open-btn"
+                onclick="ShowSidebar('delivery-left-column', 'show-left-column')">
+            &raquo;
+        </button>
+    </div>
+    <div id="delivery-workspace" class="delivery-workspace">
+        {% include 'shaw_queue/delivery_workspace.html' with delivery_orders=delivery_orders %}
+    </div>
+    <div id="delivery-right-column" class="sidebar sidebar_right">
+        <div class="sidebar__content">
+            <div class="section">
+                <div class="section__title">
+                    Период
+                </div>
+                <div class="section__content">
+                    <div class="form-group">
+                        <label for="datetimepicker1">От:</label>
+                        <input type="text" id="datetimepicker1" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="datetimepicker2">До:</label>
+                        <input type="text" id="datetimepicker2" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <button class="btn info sidebar__close-btn"
+                    onclick="HideSidebar('delivery-right-column', 'show-right-column')">
+                &raquo;
+            </button>
+        </div>
+        <button id="show-right-column" class="btn info sidebar__open-btn"
+                onclick="ShowSidebar('delivery-right-column', 'show-right-column')">
+            &laquo;
+        </button>
+    </div>
+    <div class="opaque-container" id="delivery-workspace-controls">
+        {#    <button class="btn info" onclick="CreateDeliveryOrder()" title="Add Order" >+</button>#}
+        <button class="btn info" onclick="CreateIncomingCall()" title="Add Customer">+</button>
+    </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+[
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 1,
+  "fields": {
+    "title": "Operator"
+  }
+},
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 2,
+  "fields": {
+    "title": "Cook"
+  }
+},
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 3,
+  "fields": {
+    "title": "Cashier"
+  }
+},
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 4,
+  "fields": {
+    "title": "Shashlychnik"
+  }
+},
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 6,
+  "fields": {
+    "title": "Administration"
+  }
+},
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 7,
+  "fields": {
+    "title": "Driver"
+  }
+},
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 8,
+  "fields": {
+    "title": "DeliveryOperator"
+  }
+},
+{
+  "model": "shaw_queue.staffcategory",
+  "pk": 9,
+  "fields": {
+    "title": "DeliveryAdmin"
+  }
+}
+]
