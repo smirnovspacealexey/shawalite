@@ -1,5 +1,5 @@
-from django.contrib import admin
-from models import iikoSettings
+# from django.contrib import admin
+# from models import iikoSettings
 
 
 # @admin.register(iikoSettings)
