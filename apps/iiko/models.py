@@ -3,7 +3,7 @@ from django import forms
 from django.utils import timezone
 
 
-class iikoSettings(models.Model):
+class ikoSetting(models.Model):
     url = models.CharField(max_length=200)
     active = models.BooleanField('active', default=True)
 
