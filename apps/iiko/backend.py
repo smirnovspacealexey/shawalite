@@ -1,11 +1,11 @@
 import requests
 
-url = 'http://192.168.20.110:9042/api/login/'
+url = 'http://192.168.20.110:9042/api/'
 
 
 def get_token():
     try:
-        response = requests.get(url + '/2050')
+        response = requests.get(url + 'login/2050')
 
         response.raise_for_status()
 
