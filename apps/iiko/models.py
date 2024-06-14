@@ -3,7 +3,7 @@ from django import forms
 from django.utils import timezone
 
 
-class iikoSettings(forms.ModelForm):
+class iikoSettings(models.Model):
     url = forms.CharField(widget=forms.PasswordInput())
     active = models.BooleanField('active', default=True)
 
