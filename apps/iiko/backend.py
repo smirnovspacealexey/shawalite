@@ -1,6 +1,6 @@
 import requests
 
-url = 'http://192.168.20.110:9042'
+url = 'http://192.168.20.110:9042/api/login/'
 
 
 def get_token():
