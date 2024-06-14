@@ -22,7 +22,7 @@ def send_sms(phone, msg, command_id='', vpbx_api_key=None, vpbx_api_salt=None, f
         'json': json_data,
     }
 
-    Log.add_new(f'Send to https://app.mango-office.ru/vpbx/commands/sms\n{str(data)}', 'SMS')
+    Log.add_new(f'Send to https://app.mango-office.ru/vpbx/commands/sms\n{str(data)}', 'Iiko')
 
     res = requests.post('https://app.mango-office.ru/vpbx/commands/sms', data=data)
     response = json.loads(res.content.decode("utf-8"))

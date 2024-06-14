@@ -1,9 +1,11 @@
 import requests
 from .models import iikoSettings
+from apps.logs.models import Log
 
 
 def get_token():
     url = iikoSettings.get_active().url
+    err = ''
     try:
         response = requests.get(url + 'login/2050')
 
@@ -14,16 +16,21 @@ def get_token():
 
         iikoSettings.currenttoken = data
         iikoSettings.save()
+        Log.add_new(f'get_token() {data}', 'Iiko')
         return data
 
-    except requests.exceptions.HTTPError as http_err:
-        print(f'HTTP error occurred: {http_err}')  # Выводит ошибку HTTP
-    except requests.exceptions.ConnectionError as conn_err:
-        print(f'Connection error occurred: {conn_err}')  # Выводит ошибку соединения
-    except requests.exceptions.Timeout as timeout_err:
-        print(f'Timeout error occurred: {timeout_err}')  # Выводит ошибку таймаута
-    except requests.exceptions.RequestException as req_err:
-        print(f'Request error occurred: {req_err}')  # Выводит любую другую ошибку запроса
+    except requests.exceptions.HTTPError as err:
+        print(f'HTTP error occurred: {err}')  # Выводит ошибку HTTP
+        Log.add_new(f'get_token() ERROR: {err}', 'Iiko')
+    except requests.exceptions.ConnectionError as err:
+        print(f'Connection error occurred: {err}')  # Выводит ошибку соединения
+        Log.add_new(f'get_token() ERROR: {err}', 'Iiko')
+    except requests.exceptions.Timeout as err:
+        print(f'Timeout error occurred: {err}')  # Выводит ошибку таймаута
+        Log.add_new(f'get_token() ERROR: {err}', 'Iiko')
+    except requests.exceptions.RequestException as err:
+        print(f'Request error occurred: {err}')  # Выводит любую другую ошибку запроса
+        Log.add_new(f'get_token() ERROR: {err}', 'Iiko')
 
 
 def drop_token():
@@ -33,6 +40,7 @@ def drop_token():
     response.raise_for_status()
     data = response.json()
     print(data)
+    Log.add_new(f'drop_token(): {data}', 'Iiko')
     return data
 
 
@@ -48,6 +56,7 @@ def get_kitchenorders():
 
     data = response.json()
     print(data)
+    Log.add_new(f'get_kitchenorders(): {data}', 'Iiko')
     return data
 
 
