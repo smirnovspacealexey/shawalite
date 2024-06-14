@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'jquery',
     'ymaps',
     'apps.logs',
-    'apps.iiko'
+    'apps.iko'
 ]
 
 MIDDLEWARE = [
