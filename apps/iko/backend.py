@@ -4,7 +4,8 @@ from apps.logs.models import Log
 
 
 def get_token():
-    url = iikoSettings.get_active().url
+    iko = iikoSettings.get_active()
+    url = iko.url
     err = ''
     try:
         response = requests.get(url + 'login/2050')
@@ -14,8 +15,8 @@ def get_token():
         data = response.json()
         print(data)
 
-        iikoSettings.currenttoken = data
-        iikoSettings.save()
+        iko.currenttoken = data
+        iko.save()
         Log.add_new(data, 'Iiko', title2='get_token()')
         return data
 
