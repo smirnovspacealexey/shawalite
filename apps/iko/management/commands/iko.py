@@ -6,7 +6,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print('--------iiko---------')
         get_token()
-        get_kitchenorders()
+        # get_kitchenorders()
         # print(sber.check_order_status(2))
         print('---------------------')
 
