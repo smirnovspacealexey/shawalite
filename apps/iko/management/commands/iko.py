@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from apps.iko.backend import get_token, get_kitchenorders()
+from apps.iko.backend import get_token, get_kitchenorders
 
 
 class Command(BaseCommand):
