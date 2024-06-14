@@ -48,9 +48,10 @@ def drop_token():
 def get_kitchenorders():
     drop_token()
     get_token()
-
-    params = {"key": get_token()}
     iko = iikoSettings.get_active()
+
+    params = {"key": iko.currenttoken}
+
     url = iko.url
     response = requests.get(url + 'kitchenorders/', params=params)
     response.raise_for_status()
