@@ -3,7 +3,7 @@ from .models import iikoSettings
 
 
 def get_token():
-    url = iikoSettings.get_active()
+    url = iikoSettings.get_active().url
     try:
         response = requests.get(url + 'login/2050')
 
