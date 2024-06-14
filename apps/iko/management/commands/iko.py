@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from apps.iiko.backend import get_token
+from apps.iko.backend import get_token
 
 
 class Command(BaseCommand):

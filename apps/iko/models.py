@@ -12,3 +12,7 @@ class iikoSettings(models.Model):
             type(self).objects.exclude(pk=self.pk).update(active=False)
         super().save()
 
+    @staticmethod
+    def get_active():
+        return iikoSettings.objects.filter(active=True).last()
+

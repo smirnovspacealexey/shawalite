@@ -1,9 +1,9 @@
 import requests
-
-url = 'http://192.168.20.110:9042/api/'
+from .models import iikoSettings
 
 
 def get_token():
+    url = iikoSettings.get_active()
     try:
         response = requests.get(url + 'login/2050')
 
