@@ -1,6 +1,7 @@
 import requests
 from .models import iikoSettings
 from apps.logs.models import Log
+import time
 
 
 def get_token():
@@ -62,6 +63,16 @@ def get_kitchenorders():
     return data
 
 
+def pull_kitchenorders():
+    iko = iikoSettings.get_active()
+    current_mill = round(time.time() * 1000)
+    if current_mill - iko.last_getting > 2000:
+        iko.last_getting = current_mill
+        iko.save()
+
+        return get_kitchenorders()
+
+    return None
 
 
 

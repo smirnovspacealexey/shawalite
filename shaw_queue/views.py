@@ -1339,33 +1339,35 @@ def buyer_queue_new(request):
     return buyer_queue(request, black=True, new=True, px=px)
 
 
+from apps.iko.backend import pull_kitchenorders
+
+
 def buyer_queue_ajax(request, vertical=False):
+    kitchenorders = pull_kitchenorders()
+    if kitchenorders is None:
+        return None
+
     is_voicing = request.GET.get('is_voicing', 0)
+    new_voice = request.GET.get('new_voice', 0)
+
+
     device_ip = request.META.get('HTTP_X_REAL_IP', '') or request.META.get('HTTP_X_FORWARDED_FOR', '')
     if DEBUG_SERVERY:
         device_ip = '127.0.0.1'
 
     result = define_service_point(device_ip)
 
+    display_open_orders = []
+    display_ready_orders = []
+
     if result['success']:
         try:
-            open_orders = Order.objects.filter(open_time__contains=timezone.now().date(),
-                                               close_time__isnull=True,
-                                               is_canceled=False, is_ready=False,
-                                               servery__service_point=result['service_point']).exclude(deliveryorder__moderation_needed=True).order_by('open_time')
-        except:
-            data = {
-                'success': False,
-                'message': 'Что-то пошло не так при поиске открытых заказов!'
-            }
-            client.captureException()
-            return JsonResponse(data)
-        try:
-            ready_orders = Order.objects.filter(open_time__contains=timezone.now().date(),
-                                                close_time__isnull=True,
-                                                content_completed=True, supplement_completed=True, is_ready=True,
-                                                is_canceled=False,
-                                                servery__service_point=result['service_point']).order_by('open_time')
+            for order in kitchenorders:
+                if order['ProcessingStatus'] == 1:
+                    display_open_orders.append({'servery': '', 'daily_number': order['TableNum']})
+                else:
+                    display_ready_orders.append({'servery': '', 'daily_number': order['TableNum']})
+
         except:
             data = {
                 'success': False,
@@ -1376,20 +1378,10 @@ def buyer_queue_ajax(request, vertical=False):
     else:
         return JsonResponse(result)
 
-    display_open_orders = [{'servery': order.servery.display_title, 'daily_number': order.display_number} for
-                           order in
-                           open_orders]
-
-    display_ready_orders = [{'servery': order.servery.display_title, 'daily_number': order.display_number} for
-                            order in
-                            ready_orders]
-
     context = {
         'vertical': vertical,
-        'open_orders': [{'servery': order.servery, 'daily_number': order.daily_number} for order in open_orders],
-        'ready_orders': [{'servery': order.servery, 'daily_number': order.daily_number} for order in
-                         ready_orders],
-
+        'open_orders': display_open_orders,
+        'ready_orders': display_ready_orders,
     }
 
     if vertical:
@@ -1414,10 +1406,11 @@ def buyer_queue_ajax(request, vertical=False):
     template = loader.get_template('shaw_queue/buyer_queue_ajax.html')
     data = {
         'html': template.render(context, request),
-        'ready': json.dumps(
-            [order.daily_number for order in ready_orders.filter(is_voiced=False)]),
-        'voiced': json.dumps(
-            [order.is_voiced for order in ready_orders.filter(is_voiced=False)])
+        'new_voice': new_voice,
+        # 'ready': json.dumps(
+        #     [order.daily_number for order in ready_orders.filter(is_voiced=False)]),
+        # 'voiced': json.dumps(
+        #     [order.is_voiced for order in ready_orders.filter(is_voiced=False)])
     }
     # for order in ready_orders:
     #     order.is_voiced = True

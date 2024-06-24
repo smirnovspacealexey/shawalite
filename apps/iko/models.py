@@ -7,6 +7,7 @@ class iikoSettings(models.Model):
     url = models.CharField(max_length=200)
     active = models.BooleanField('active', default=True)
     currenttoken = models.CharField(max_length=200, default='')
+    last_getting = models.CharField(max_length=200)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if self.active:
