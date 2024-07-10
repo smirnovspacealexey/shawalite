@@ -1343,6 +1343,8 @@ from apps.iko.backend import pull_kitchenorders
 
 
 def buyer_queue_ajax(request, template, vertical=False):
+    Log.add_new(f'pапрос', 'iko')
+
     kitchenorders = pull_kitchenorders()
     if kitchenorders is None:
         return None
