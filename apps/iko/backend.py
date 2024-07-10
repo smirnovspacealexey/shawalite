@@ -66,7 +66,7 @@ def get_kitchenorders():
 def pull_kitchenorders():
     iko = iikoSettings.get_active()
     current_mill = round(time.time() * 1000)
-    if current_mill - iko.last_getting > 2000:
+    if current_mill - int(iko.last_getting) > 2000:
         iko.last_getting = current_mill
         iko.save()
 
