@@ -66,6 +66,7 @@ def get_kitchenorders():
 def pull_kitchenorders():
     iko = iikoSettings.get_active()
     current_mill = round(time.time() * 1000)
+    Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
     if current_mill - int(iko.last_getting) > 20000:
         iko.last_getting = current_mill
