@@ -1342,7 +1342,7 @@ def buyer_queue_new(request):
 from apps.iko.backend import pull_kitchenorders
 
 
-def buyer_queue_ajax(request, vertical=False):
+def buyer_queue_ajax(request, template, vertical=False):
     kitchenorders = pull_kitchenorders()
     if kitchenorders is None:
         return None
@@ -1404,8 +1404,13 @@ def buyer_queue_ajax(request, vertical=False):
 
     template = loader.get_template('shaw_queue/buyer_queue_ajax.html')
     data = {
-        'html': template.render(context, request),
+        # 'html': template.render(context, request),
+        'html': str(kitchenorders),
         'new_voice': new_voice,
+        'kitchenorders': str(kitchenorders),
+        'ready': '',
+
+
         # 'ready': json.dumps(
         #     [order.daily_number for order in ready_orders.filter(is_voiced=False)]),
         # 'voiced': json.dumps(
