@@ -1407,8 +1407,8 @@ def buyer_queue_ajax(request, vertical=False):
 
     template = loader.get_template('shaw_queue/buyer_queue_ajax.html')
     data = {
-        # 'html': template.render(context, request),
-        'html': 'TEST TEST',
+        'html': template.render(context, request),
+        # 'html': 'TEST TEST',
         'new_voice': new_voice,
         'kitchenorders': str(kitchenorders),
         'ready': '',
