@@ -1406,7 +1406,7 @@ def buyer_queue_ajax(request, vertical=False):
         context.update({'display_open_orders': display_open_orders,
                         'display_ready_orders': display_ready_orders, })
 
-    # template = loader.get_template('shaw_queue/buyer_queue_ajax.html')
+    template = loader.get_template('shaw_queue/buyer_queue_ajax.html')
     data = {
         'html': template.render(context, request),
         # 'html': 'TEST TEST',
