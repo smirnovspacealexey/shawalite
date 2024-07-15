@@ -34,8 +34,8 @@ function refresher() {
         success: function (data) {
             console.log('success');
             $('#page-content').html(data['html']);
-            var updated_ready_numbers = JSON.parse(data['ready']);
-            var voiced_flags = JSON.parse(data['voiced']);
+            // var updated_ready_numbers = JSON.parse(data['ready']);
+            // var voiced_flags = JSON.parse(data['voiced']);
             // var difference = updated_ready_numbers.filter(function (el) {
             //     return !ready_order_numbers.includes(el)
             // });
