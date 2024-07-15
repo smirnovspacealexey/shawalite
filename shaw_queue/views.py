@@ -1346,8 +1346,6 @@ def buyer_queue_ajax(request, vertical=False):
     Log.add_new(f'запрос', 'iko')
 
     kitchenorders = pull_kitchenorders()
-    if kitchenorders is None:
-        return None
 
     is_voicing = request.GET.get('is_voicing', 0)
     new_voice = request.GET.get('new_voice', 0)
