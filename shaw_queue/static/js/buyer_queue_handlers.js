@@ -28,9 +28,9 @@ function refresher() {
     console.log($('#urls').attr('data-refresh-url'));
     $.ajax({
         url: $('#urls').attr('data-refresh-url'),
-        // data: {
-        //     'is_voicing': is_voicing ? 1 : 0
-        // },
+        data: {
+            'is_voicing': is_voicing ? 1 : 0
+        },
         success: function (data) {
             console.log('success');
             $('#page-content').html(data['html']);
