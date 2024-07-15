@@ -1365,7 +1365,8 @@ def buyer_queue_ajax(request, vertical=False):
     if True:
         try:
             for order in kitchenorders:
-                if order['ProcessingStatus'] == 1:
+                # if order['ProcessingStatus'] == 1:
+                if True:
                     display_open_orders.append({'servery': '', 'daily_number': order['TableNum']})
                 else:
                     display_ready_orders.append({'servery': '', 'daily_number': order['TableNum']})
