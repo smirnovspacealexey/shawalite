@@ -1370,10 +1370,10 @@ def buyer_queue_ajax(request, vertical=False):
                 else:
                     display_ready_orders.append({'servery': '', 'daily_number': order['TableNum']})
 
-        except:
+        except Exception as e:
             data = {
                 'success': False,
-                'message': 'Что-то пошло не так при поиске готовых заказов!'
+                'message': 'Что-то пошло не так при поиске готовых заказов! ' + str(e)
             }
             client.captureException()
             return JsonResponse(data)
