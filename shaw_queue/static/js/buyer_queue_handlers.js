@@ -28,10 +28,11 @@ function refresher() {
     console.log($('#urls').attr('data-refresh-url'));
     $.ajax({
         url: $('#urls').attr('data-refresh-url'),
-        data: {
-            'is_voicing': is_voicing ? 1 : 0
-        },
+        // data: {
+        //     'is_voicing': is_voicing ? 1 : 0
+        // },
         success: function (data) {
+            console.log('success');
             $('#page-content').html(data['html']);
             var updated_ready_numbers = JSON.parse(data['ready']);
             var voiced_flags = JSON.parse(data['voiced']);
