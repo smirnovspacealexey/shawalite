@@ -1361,7 +1361,8 @@ def buyer_queue_ajax(request, vertical=False):
     display_open_orders = []
     display_ready_orders = []
 
-    if result['success']:
+    # if result['success']:
+    if True:
         try:
             for order in kitchenorders:
                 if order['ProcessingStatus'] == 1:
