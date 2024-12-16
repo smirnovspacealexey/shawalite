@@ -39,4 +39,4 @@ shashlyk_cooking_duration = 35
 shawarma_cooking_duration = 10
         # https://192.168.20.25/queue.php?_login=amiuser&_secret=amipass33&_action=cdr
 	# https://pbx.natruda.ru/queue.php?_login=amiuser&_secret=617cSrEqy48&_action=cdr
-LOCAL_TEST = False
+LOCAL_TEST = True
