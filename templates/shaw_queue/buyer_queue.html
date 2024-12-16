@@ -240,17 +240,10 @@
 {% endif %}
 
 
+
+
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
-    
-    function speakNumber(number) {
-    const utterance = new SpeechSynthesisUtterance(number.toString());
-    utterance.lang = "ru-RU"; // Установка языка, например, русский
-    window.speechSynthesis.speak(utterance);
-}
-
-// Вызов функции
-speakNumber(12345);
-
-    
-    
+    alert();
+  responsiveVoice.speak("номер 88005553535 готов", "Russian Male");
 </script>
