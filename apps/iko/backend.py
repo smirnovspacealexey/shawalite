@@ -1,6 +1,7 @@
 import requests
 from .models import iikoSettings
 from apps.logs.models import Log
+from datetime import datetime
 import time
 
 
@@ -74,20 +75,25 @@ def pull_kitchenorders():
 
         data = get_kitchenorders()
 
-        new_data = []
+        # Получаем текущую дату в формате YYYY-MM-DD
+        current_date = datetime.now().date()
 
-        for item_data in data:
-            filtered_data = filter_items(item_data["Items"])
-            if filtered_data:
-                new_data += item_data
+        # Фильтруем элементы списка по ServeTime
+        for obj in data:
+            if "Items" in obj:
+                obj["Items"] = [
+                    item for item in obj["Items"]
+                    if datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
+                ]
 
-        # Log.add_new(str(new_data), 'Iiko', title2='new_data')
-        return new_data
+        # Убираем объекты без элементов
+        data = [obj for obj in data if obj["Items"]]
+
+        return data
 
     return None
 
 
-from datetime import datetime
 
 
 def filter_items(items):
