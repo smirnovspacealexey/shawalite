@@ -72,9 +72,43 @@ def pull_kitchenorders():
         iko.last_getting = current_mill
         iko.save()
 
-        return get_kitchenorders()
+        data = get_kitchenorders()
+
+        new_data = []
+
+        for item in data:
+            filtered_data = filter_items(data["Items"])
+            if filtered_data:
+                new_data.append(item)
+
+        return new_data
 
     return None
+
+
+from datetime import datetime
+
+
+def filter_items(items):
+    current_date = datetime.now().date()
+
+    filtered_items = []
+    for item in items:
+        serve_time = item.get("ServeTime")
+
+        # Проверим, существует ли ServeTime и отличается ли он от текущей даты
+        if serve_time is not None:
+            try:
+                serve_time_date = datetime.strptime(serve_time,
+                                                    "%Y-%m-%dT%H:%M:%S.%f%z").date()  # Формат времени в вашем JSON
+
+                if serve_time_date == current_date:
+                    filtered_items.append(item)
+            except ValueError:
+                pass  # Пропустим запись, если формат строки ServeTime не соответствует ожидаемому
+
+
+    return filtered_items
 
 
 
