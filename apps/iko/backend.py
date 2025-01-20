@@ -80,21 +80,20 @@ def pull_kitchenorders():
 
         Log.add_new('go', 'Iiko', title2='new_data 0')
 
+        try:
+            for order in data:
+                if "Items" in order:
 
-        # Обработка данных
-        for order in data:
-            if "Items" in order:
-
-                # for item in order["Items"]:
-                #     Log.add_new(str(datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date), 'Iiko', title2='777')
+                    # for item in order["Items"]:
+                    #     Log.add_new(str(datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date), 'Iiko', title2='777')
 
 
-                order["Items"] = [
-                    item for item in order["Items"]
-                    if datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
-                ]
-
-        # Удаляем заказы без элементов
+                    order["Items"] = [
+                        item for item in order["Items"]
+                        if datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
+                    ]
+        except Exception as e:
+            Log.add_new(str(e), 'Iiko', title2='error 1')
 
         Log.add_new(str(data), 'Iiko', title2='new_data 1')
 
