@@ -74,7 +74,7 @@ def pull_kitchenorders():
         iko.save()
 
         data = get_kitchenorders()
-
+        return data
         # Получаем текущую дату в формате YYYY-MM-DD
         current_date = datetime.now().date()
 
