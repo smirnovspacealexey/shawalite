@@ -78,6 +78,9 @@ def pull_kitchenorders():
         # Получаем текущую дату в формате YYYY-MM-DD
         current_date = datetime.now().date()
 
+        Log.add_new('go', 'Iiko', title2='new_data 0')
+
+
         # Обработка данных
         for order in data:
             if "Items" in order:
