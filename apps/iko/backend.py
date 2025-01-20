@@ -92,9 +92,13 @@ def pull_kitchenorders():
                 ]
 
         # Удаляем заказы без элементов
+
+        Log.add_new(str(data), 'Iiko', title2='new_data 1')
+
         data = [order for order in data if order["Items"]]
 
-        # Log.add_new(str(new_data), 'Iiko', title2='new_data')
+        Log.add_new(str(data), 'Iiko', title2='new_data 2')
+
 
         return data
 
