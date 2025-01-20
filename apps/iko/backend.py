@@ -81,7 +81,7 @@ def pull_kitchenorders():
         # Обработка данных
         for order in data:
             if "Items" in order:
-                Log.add_new(str(order["Items"]), 'Iiko', title2='77')
+                # Log.add_new(str(order["Items"]), 'Iiko', title2='77')
                 order["Items"] = [
                     item for item in order["Items"]
                     if datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
