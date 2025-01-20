@@ -90,7 +90,7 @@ def pull_kitchenorders():
 
                     order["Items"] = [
                         item for item in order["Items"]
-                        if datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
+                        if item["ServeTime"] and datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
                     ]
         except Exception as e:
             Log.add_new(str(e), 'Iiko', title2='error 1')
