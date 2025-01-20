@@ -81,7 +81,7 @@ def pull_kitchenorders():
             if filtered_data:
                 new_data.append(item)
 
-        Log.add_new(str(new_data), 'Iiko', title2='new_data')
+        # Log.add_new(str(new_data), 'Iiko', title2='new_data')
         return new_data
 
     return None
@@ -102,6 +102,8 @@ def filter_items(items):
             try:
                 serve_time_date = datetime.strptime(serve_time,
                                                     "%Y-%m-%dT%H:%M:%S.%f%z").date()  # Формат времени в вашем JSON
+
+                Log.add_new(str(serve_time_date) + '   ' + str(current_date), 'Iiko', title2='current_date')
 
                 if serve_time_date == current_date:
                     filtered_items.append(item)
