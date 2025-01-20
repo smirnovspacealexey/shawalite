@@ -36,6 +36,7 @@
         document.getElementById("quene-style").innerHTML = new_style
     });
 </script>
+
 {% if not is_voicing %}
     <style>
         body, html {
@@ -110,6 +111,7 @@
             <div class="carousel-container">
                 <div id="carousels">
                     {% for image in carousel_images %}
+                        <canvas id="snowCanvas"></canvas>
                         <div class="carousel"><img class="carousel-image" src="{{ image }}"></div>
                     {% endfor %}
                 </div>
@@ -242,8 +244,7 @@
 
 
 
-<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-<script>
-    alert();
-  responsiveVoice.speak("номер 88005553535 готов", "Russian Male");
-</script>
+{#<script src="https://code.responsivevoice.org/responsivevoice.js"></script>#}
+{#<script>#}
+{#  responsiveVoice.speak("номер 88005553535 готов", "Russian Male");#}
+{#</script>#}
