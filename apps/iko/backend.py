@@ -74,20 +74,20 @@ def pull_kitchenorders():
         iko.save()
 
         data = get_kitchenorders()
-        return data
+        # return data
         # Получаем текущую дату в формате YYYY-MM-DD
         current_date = datetime.now().date()
 
-        # Фильтруем элементы списка по ServeTime
-        for obj in data:
-            if "Items" in obj:
-                obj["Items"] = [
-                    item for item in obj["Items"]
+        # Обработка данных
+        for order in data:
+            if "Items" in order:
+                order["Items"] = [
+                    item for item in order["Items"]
                     if datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
                 ]
 
-        # Убираем объекты без элементов
-        data = [obj for obj in data if obj["Items"]]
+        # Удаляем заказы без элементов
+        data = [order for order in data if order["Items"]]
 
         return data
 
