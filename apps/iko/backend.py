@@ -76,10 +76,10 @@ def pull_kitchenorders():
 
         new_data = []
 
-        for item in data:
-            filtered_data = filter_items(item["Items"])
+        for item_data in data:
+            filtered_data = filter_items(item_data["Items"])
             if filtered_data:
-                new_data.append(item)
+                new_data += item_data
 
         # Log.add_new(str(new_data), 'Iiko', title2='new_data')
         return new_data
