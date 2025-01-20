@@ -81,6 +81,7 @@ def pull_kitchenorders():
             if filtered_data:
                 new_data.append(item)
 
+        Log.add_new(str(new_data), 'Iiko', title2='new_data')
         return new_data
 
     return None
