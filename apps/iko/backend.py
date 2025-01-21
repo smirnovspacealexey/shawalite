@@ -78,7 +78,6 @@ def pull_kitchenorders():
         # Получаем текущую дату в формате YYYY-MM-DD
         current_date = datetime.now().date()
 
-        Log.add_new('go', 'Iiko', title2='new_data 0')
 
         try:
             for order in data:
@@ -90,6 +89,8 @@ def pull_kitchenorders():
                     ]
 
             data = [order for order in data if order["Items"]]
+
+            Log.add_new(str(data), 'Iiko', title2='new_data 1')
 
             wait_orders = data
             ready_orders = data
@@ -103,6 +104,7 @@ def pull_kitchenorders():
                     ]
 
             wait_orders = [order for order in wait_orders if order["Items"]]
+            Log.add_new(str(wait_orders), 'Iiko', title2='wait_orders')
 
             for order in ready_orders:
                 if "Items" in order:
@@ -116,6 +118,8 @@ def pull_kitchenorders():
                             continue
 
             ready_orders = [order for order in ready_orders if order["Items"]]
+
+            Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
 
             return wait_orders, ready_orders
 
