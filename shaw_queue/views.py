@@ -1409,13 +1409,11 @@ def buyer_queue_ajax(request, vertical=False):
     template = loader.get_template('shaw_queue/buyer_queue_ajax.html')
     data = {
         'html': template.render(context, request),
-        # 'html': 'TEST TEST',
         'new_voice': new_voice,
-        'kitchenorders': str(kitchenorders),
-        'ready': '',
+        'display_open_orders': display_open_orders,
+        'display_ready_orders': display_ready_orders,
 
-
-        # 'ready': json.dumps(
+        # 'display_ready_orders': json.dumps(
         #     [order.daily_number for order in ready_orders.filter(is_voiced=False)]),
         # 'voiced': json.dumps(
         #     [order.is_voiced for order in ready_orders.filter(is_voiced=False)])
