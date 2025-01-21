@@ -105,6 +105,8 @@ def pull_kitchenorders():
             wait_orders = [order for order in wait_orders if order["Items"]]
             Log.add_new(str(wait_orders), 'Iiko', title2='wait_orders')
 
+            Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders 0')
+
             for order in ready_orders:
                 if "Items" in order:
                     for item in order["Items"]:
@@ -112,9 +114,9 @@ def pull_kitchenorders():
                             if item['ProcessingStatus'] != 6:
                                 order["Items"] = []
                                 continue
-                        else:
-                            order["Items"] = []
-                            continue
+                        # else:
+                        #     order["Items"] = []
+                        #     continue
 
             ready_orders = [order for order in ready_orders if order["Items"]]
 
