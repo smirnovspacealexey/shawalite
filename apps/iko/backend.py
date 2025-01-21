@@ -91,8 +91,8 @@ def pull_kitchenorders():
 
             Log.add_new(str(data), 'Iiko', title2='new_data 1')
 
-            wait_orders = data
-            ready_orders = data
+            wait_orders = data.copy()
+            ready_orders = data.copy()
 
             for order in wait_orders:
                 if "Items" in order:
