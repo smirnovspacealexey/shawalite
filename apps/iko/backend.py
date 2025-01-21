@@ -99,16 +99,23 @@ def pull_kitchenorders():
 
                     order["Items"] = [
                         item for item in order["Items"]
-                        if item['ProcessingStatus'] == 1
+                        if item['ProcessingStatus'] and item['ProcessingStatus'] == 1
                     ]
+
+            wait_orders = [order for order in wait_orders if order["Items"]]
 
             for order in ready_orders:
                 if "Items" in order:
+                    for item in order["Items"]:
+                        if item['ProcessingStatus']:
+                            if item['ProcessingStatus'] != 6:
+                                order["Items"] = []
+                                continue
+                        else:
+                            order["Items"] = []
+                            continue
 
-                    order["Items"] = [
-                        item for item in order["Items"]
-                        if item['ProcessingStatus'] == 6
-                    ]
+            ready_orders = [order for order in ready_orders if order["Items"]]
 
             return wait_orders, ready_orders
 
