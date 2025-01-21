@@ -84,14 +84,30 @@ def pull_kitchenorders():
             for order in data:
                 if "Items" in order:
 
-                    # for item in order["Items"]:
-                    #     Log.add_new(str(datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date), 'Iiko', title2='777')
-
-
                     order["Items"] = [
                         item for item in order["Items"]
                         if item["ServeTime"] and datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
                     ]
+
+            wait_orders = data
+            ready_orders = data
+
+            for order in wait_orders:
+                if "Items" in order:
+
+                    order["Items"] = [
+                        item for item in order["Items"]
+                        if item['ProcessingStatus'] == 1
+                    ]
+
+            for order in ready_orders:
+                if "Items" in order:
+
+                    order["Items"] = [
+                        item for item in order["Items"]
+                        if item['ProcessingStatus'] == 6
+                    ]
+
         except Exception as e:
             Log.add_new(str(e), 'Iiko', title2='error 1')
 
@@ -102,7 +118,7 @@ def pull_kitchenorders():
         Log.add_new(str(data), 'Iiko', title2='new_data 2')
 
 
-        return data
+        return wait_orders, ready_orders
 
     return None
 
