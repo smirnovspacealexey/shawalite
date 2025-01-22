@@ -67,7 +67,7 @@ def get_kitchenorders():
 def pull_kitchenorders():
     iko = iikoSettings.get_active()
     current_mill = round(time.time() * 1000)
-    Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
+    # Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
     if current_mill - int(iko.last_getting) > 20000:
         iko.last_getting = current_mill
@@ -89,7 +89,7 @@ def pull_kitchenorders():
 
             data = [order for order in data if order["Items"]]
 
-            Log.add_new(str(data), 'Iiko', title2='new_data 1')
+            # Log.add_new(str(data), 'Iiko', title2='new_data 1')
 
             wait_orders = data.copy()
 
@@ -108,7 +108,7 @@ def pull_kitchenorders():
                 if all(item['ProcessingStatus'] == 6 for item in order['Items'])
             ]
 
-            Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
+            # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
 
             return wait_orders, ready_orders
 

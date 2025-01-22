@@ -39,8 +39,8 @@ function refresher() {
             // var difference = updated_ready_numbers.filter(function (el) {
             //     return !ready_order_numbers.includes(el)
             // });
-            if (!is_voicing)
-                process_numbers(updated_ready_numbers, voiced_flags);
+            // if (!is_voicing)
+            //     process_numbers(updated_ready_numbers, voiced_flags);
             //console.log(difference);
             //sound_number(difference);
             /*for(var i=0; i<updated_ready_numbers.length; i++)

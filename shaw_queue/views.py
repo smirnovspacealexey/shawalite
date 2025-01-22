@@ -1213,6 +1213,7 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
     print(vertical)
     print(px)
     reload_time = request.GET.get('r', None)
+
     is_voicing = int(request.GET.get('is_voicing', 0))
     device_ip = request.META.get('HTTP_X_REAL_IP', '') or request.META.get('HTTP_X_FORWARDED_FOR', '')
     if DEBUG_SERVERY:
