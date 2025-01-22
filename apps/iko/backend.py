@@ -60,7 +60,7 @@ def get_kitchenorders():
 
     data = response.json()
     print(data)
-    Log.add_new(data, 'Iiko', title2='get_kitchenorders()')
+    # Log.add_new(data, 'Iiko', title2='get_kitchenorders()')
     return data
 
 
