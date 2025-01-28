@@ -75,7 +75,7 @@
 {%  if new_voice != '0' %}
 <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
-  
+    {{ new_voice }}
 let awaitVoice = 1000;
   
   {% for order_need_voice in orders_need_voice %}
