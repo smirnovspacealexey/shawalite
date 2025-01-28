@@ -71,9 +71,8 @@
         </div>
     {% endif %}
 </div>
-    {{ new_voice }}
 
-{%  if new_voice != '0' %}
+{% if new_voice %}
 <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
 let awaitVoice = 1000;
