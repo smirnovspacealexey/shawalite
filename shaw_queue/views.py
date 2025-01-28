@@ -1379,7 +1379,7 @@ def buyer_queue_ajax(request, vertical=False):
             for order in ready_kitchenorders:
                     iko_order, res = IkoOrder.objects.get_or_create(ikoid=order['Id'], number=order['Number'])
                     if new_voice != 0:
-                        if not iko_order.is_voiced:
+                        if iko_order.is_voiced:
                             orders_need_voice.append(order['Number'])
                             iko_order.is_voiced = True
                             iko_order.save()
