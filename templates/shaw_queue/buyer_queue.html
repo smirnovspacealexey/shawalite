@@ -252,5 +252,19 @@
 
 <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
-  {#responsiveVoice.speak("номер 88005553535 готов", "Russian Male");#}
+
+let awaitVoice = 1000;
+
+  
+
+      setTimeout(function () {
+          responsiveVoice.speak("номер " + '39' + "готов", "Russian Male");
+      }, awaitVoice);
+
+      awaitVoice += 1000;
+
+  
+
+
+
 </script>
