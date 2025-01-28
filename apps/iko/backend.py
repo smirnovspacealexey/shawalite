@@ -96,27 +96,19 @@ def pull_kitchenorders():
             wait_orders = data.copy()
             ready_orders = data.copy()
 
-            for order in wait_orders:
-                if "Items" in order:
+            wait_orders = [
+                order for order in data
+                if all(item['ProcessingCompleteTime'] is None for item in order['Items'])
+            ]
 
-                    order["Items"] = [
-                        item for item in order["Items"]
-                        if item['ProcessingCompleteTime'] and item['ProcessingCompleteTime'] is None
-                    ]
+            # wait_orders = [order for order in wait_orders if order["Items"]]
 
-            wait_orders = [order for order in wait_orders if order["Items"]]
+            ready_orders = [
+                order for order in data
+                if all(item['ProcessingStatus'] is not None for item in order['Items'])
+            ]
 
-            for order in ready_orders:
-                if "Items" in order:
-
-                    order["Items"] = [
-                        item for item in order["Items"]
-                        if item['ProcessingStatus'] and item['ProcessingStatus'] is not None
-                    ]
-
-            ready_orders = [order for order in ready_orders if order["Items"]]
-
-            Log.add_new(str(wait_orders), 'Iiko', title2='wait_orders')
+            # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
 
             return wait_orders, ready_orders
 
