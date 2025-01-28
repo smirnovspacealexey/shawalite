@@ -3,6 +3,7 @@
  */
 var ready_order_numbers = [];
 var is_voicing = false;
+var new_voice = false;
 var csrftoken = $("[name=csrfmiddlewaretoken]").val();
 
 var carousels = document.querySelectorAll('div.carousel');
@@ -12,6 +13,7 @@ var carouselInterval = setInterval(nextCarousel, 20000);
 
 $(document).ready(function () {
         is_voicing = is_voicing_page;
+        new_voice = new_voice_page;
         refresher();
         carousels = document.querySelectorAll('div.carousel');
     }
@@ -28,9 +30,10 @@ function refresher() {
     console.log($('#urls').attr('data-refresh-url'));
     $.ajax({
         url: $('#urls').attr('data-refresh-url'),
-        // data: {
-        //     'is_voicing': is_voicing ? 1 : 0
-        // },
+        data: {
+            'new_voice': new_voice ? 1 : 0
+            // 'is_voicing': is_voicing ? 1 : 0
+        },
         success: function (data) {
             console.log('success');
             $('#page-content').html(data['html']);

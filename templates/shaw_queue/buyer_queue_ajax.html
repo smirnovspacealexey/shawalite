@@ -77,17 +77,17 @@
 <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
 let awaitVoice = 1000;
-  
+
   {% for order_need_voice in orders_need_voice %}
-        
+
       setTimeout(function () {
-          responsiveVoice.speak("номер " + {order_need_voice} + "готов", "Russian Male"); 
+          responsiveVoice.speak("номер " + {order_need_voice} + "готов", "Russian Male");
       }, awaitVoice);
-      
+
       awaitVoice += 1000;
-      
-  {% endfor %}  
-  
-  
+
+  {% endfor %}
+
+
 </script>
 {% endif %}

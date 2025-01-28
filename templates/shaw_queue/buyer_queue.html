@@ -19,6 +19,12 @@
     {% else %}
         var is_voicing_page = false;
     {% endif %}
+    
+    {% if new_voice %}
+        var new_voice_page = true;
+    {% else %}
+        var new_voice_page = false;
+    {% endif %}
 
     {% if black %}
         let black_color = true
