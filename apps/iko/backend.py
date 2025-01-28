@@ -86,7 +86,7 @@ def pull_kitchenorders():
                  if "Items" in order:
                     order["Items"] = [
                             item for item in order["Items"]
-                            if item["ServeTime"] and datetime.fromisoformat(item["ServeTime"].split("T")[0]).date() == current_date
+                            if item["PrintTime"] and datetime.fromisoformat(item["PrintTime"].split("T")[0]).date() == current_date
                         ]
 
             data = [order for order in data if order["Items"]]
@@ -100,14 +100,14 @@ def pull_kitchenorders():
 
                     order["Items"] = [
                         item for item in order["Items"]
-                        if item['ProcessingStatus'] and item['ProcessingStatus'] == 1
+                        if item['ProcessingStatus'] and item['ProcessingStatus'] in {0, 2, 3, 4}
                     ]
 
             wait_orders = [order for order in wait_orders if order["Items"]]
 
             ready_orders = [
                 order for order in data
-                if all(item['ProcessingStatus'] == 6 for item in order['Items'])
+                if all(item['ProcessingStatus'] in {5, 6} for item in order['Items'])
             ]
 
             # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
