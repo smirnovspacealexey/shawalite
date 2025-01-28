@@ -98,14 +98,14 @@ def pull_kitchenorders():
 
             wait_orders = [
                 order for order in wait_orders
-                if any(item['ProcessingCompleteTime'] is None for item in order['Items'])
+                if any(item['ProcessingCompleteTime'] is None for item in order['Items']) and all(item['ProcessingStatus'] in {1, 2, 3, 4} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
             ]
 
             # wait_orders = [order for order in wait_orders if order["Items"]]
 
             ready_orders = [
                 order for order in ready_orders
-                if all(item['ProcessingCompleteTime'] is not None for item in order['Items']) and all(item['ProcessingStatus'] in {5, 6} for item in order['Items'])
+                if all(item['ProcessingCompleteTime'] is not None for item in order['Items']) and all(item['ProcessingStatus'] in {5, 6} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
             ]
 
             # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
