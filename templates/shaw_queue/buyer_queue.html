@@ -272,7 +272,7 @@ function voiceMe(txt) {
 
 function voiceList(listVoice) {
     let VoiceIndex = 0;
-    const intervalId = setInterval(() => {
+    let intervalId = setInterval(() => {
         if (VoiceIndex < listVoice.length) {
             voiceMe("номер " + listVoice[VoiceIndex] + " готов");
             VoiceIndex++;
