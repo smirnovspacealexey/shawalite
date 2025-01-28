@@ -1393,7 +1393,7 @@ def buyer_queue_ajax(request, vertical=False):
         'open_orders': display_open_orders,
         'ready_orders': display_ready_orders,
         'orders_need_voice': orders_need_voice,
-        'is_voicing': is_voicing,
+        'new_voice': new_voice,
     }
 
     if vertical:
