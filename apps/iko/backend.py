@@ -94,21 +94,27 @@ def pull_kitchenorders():
             # Log.add_new(str(data), 'Iiko', title2='new_data')
 
             wait_orders = data.copy()
+            ready_orders = data.copy()
 
             for order in wait_orders:
                 if "Items" in order:
 
                     order["Items"] = [
                         item for item in order["Items"]
-                        if item['ProcessingStatus'] and item['ProcessingStatus'] in {0, 2, 3, 4}
+                        if item['ProcessingStatus'] and item['ProcessingStatus'] in {2, 3, 4}
                     ]
 
             wait_orders = [order for order in wait_orders if order["Items"]]
 
-            ready_orders = [
-                order for order in data
-                if all(item['ProcessingStatus'] in {5, 6} for item in order['Items'])
-            ]
+            for order in ready_orders:
+                if "Items" in order:
+
+                    order["Items"] = [
+                        item for item in order["Items"]
+                        if item['ProcessingStatus'] and item['ProcessingStatus'] in {5, 6}
+                    ]
+
+            ready_orders = [order for order in ready_orders if order["Items"]]
 
             # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
 
