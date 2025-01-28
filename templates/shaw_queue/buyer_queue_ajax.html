@@ -79,19 +79,9 @@
 
 
 
-listVoice = [  {% for order_need_voice in orders_need_voice %}"{{order_need_voice}}", {% endfor %}];
-VoiceIndex = 0;
+voiceList([  {% for order_need_voice in orders_need_voice %}"{{order_need_voice}}", {% endfor %}]);
 
 
-const intervalId = setInterval(() => {
-    if (VoiceIndex < listVoice.length) {
-        voiceMe("номер " + listVoice[VoiceIndex] + "готов"); 
-        VoiceIndex++; 
-    } else {
-        clearInterval(intervalId); 
-        console.log("Все элементы обработаны.");
-    }
-}, 2000); 
 
 
 </script>
