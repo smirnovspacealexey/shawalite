@@ -116,7 +116,7 @@ def pull_kitchenorders():
 
             ready_orders = [order for order in ready_orders if order["Items"]]
 
-            Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
+            Log.add_new(str(wait_orders), 'Iiko', title2='wait_orders')
 
             return wait_orders, ready_orders
 
