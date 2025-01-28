@@ -72,7 +72,7 @@ def pull_kitchenorders():
     current_mill = round(time.time() * 1000)
     # Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
-    if current_mill - int(iko.last_getting) > 20000:
+    if current_mill - int(iko.last_getting) > 10000:
         iko.last_getting = current_mill
         iko.save()
 
