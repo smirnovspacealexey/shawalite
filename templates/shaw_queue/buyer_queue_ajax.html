@@ -73,14 +73,13 @@
 </div>
 
 {% if new_voice %}
-<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <script>
 let awaitVoice = 1000;
 
   {% for order_need_voice in orders_need_voice %}
 
       setTimeout(function () {
-          responsiveVoice.speak("номер " + {order_need_voice} + "готов", "Russian Male");
+          voiceMe("номер " + {order_need_voice} + "готов");
       }, awaitVoice);
 
       awaitVoice += 1000;

@@ -19,7 +19,7 @@
     {% else %}
         var is_voicing_page = false;
     {% endif %}
-    
+
     {% if new_voice %}
         var new_voice_page = true;
     {% else %}
@@ -250,13 +250,20 @@
 
 
 
-<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-<script>
-
-responsiveVoice.speak("номер " + '39' + "готов", "Russian Male");
-
-  
-
-
-
+<script>    
+function voiceMe(txt) {
+    window.speechSynthesis.onvoiceschanged = () => {
+    const voices = window.speechSynthesis.getVoices();
+    const russianVoice = voices.find(voice => voice.lang === 'ru-RU');
+    
+    if (russianVoice) {
+        const utterance = new SpeechSynthesisUtterance(txt);
+        utterance.voice = russianVoice;
+        utterance.lang = 'ru-RU';
+        window.speechSynthesis.speak(utterance);        
+    } else {
+        console.log("Русский голос не найден.");
+    }
+};
+}
 </script>
