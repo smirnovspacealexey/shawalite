@@ -87,8 +87,8 @@ function processItem(item) {
 }
 
 const intervalId = setInterval(() => {
-    if (index < list.length) {
-        voiceMe("номер " + list[index] + "готов"); 
+    if (index < listVoice.length) {
+        voiceMe("номер " + listVoice[index] + "готов"); 
         index++; 
     } else {
         clearInterval(intervalId); 
