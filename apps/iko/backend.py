@@ -101,7 +101,7 @@ def pull_kitchenorders():
 
                     order["Items"] = [
                         item for item in order["Items"]
-                        if item['ProcessingStatus'] and item['ProcessingStatus'] in {2, 3, 4}
+                        if item['ProcessingCompleteTime'] and item['ProcessingCompleteTime'] is None
                     ]
 
             wait_orders = [order for order in wait_orders if order["Items"]]
@@ -111,7 +111,7 @@ def pull_kitchenorders():
 
                     order["Items"] = [
                         item for item in order["Items"]
-                        if item['ProcessingStatus'] and item['ProcessingStatus'] in {5, 6}
+                        if item['ProcessingStatus'] and item['ProcessingStatus'] is not None
                     ]
 
             ready_orders = [order for order in ready_orders if order["Items"]]
