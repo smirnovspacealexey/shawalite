@@ -89,7 +89,7 @@ def pull_kitchenorders():
 
             data = [order for order in data if order["Items"]]
 
-            # Log.add_new(str(data), 'Iiko', title2='new_data 1')
+            Log.add_new(str(data), 'Iiko', title2='new_data')
 
             wait_orders = data.copy()
 
