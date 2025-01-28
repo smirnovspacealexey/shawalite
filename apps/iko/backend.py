@@ -98,7 +98,7 @@ def pull_kitchenorders():
 
             wait_orders = [
                 order for order in wait_orders
-                if all(item['ProcessingCompleteTime'] is None for item in order['Items'])
+                if any(item['ProcessingCompleteTime'] is None for item in order['Items'])
             ]
 
             # wait_orders = [order for order in wait_orders if order["Items"]]
