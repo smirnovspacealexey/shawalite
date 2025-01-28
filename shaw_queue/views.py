@@ -1372,10 +1372,11 @@ def buyer_queue_ajax(request, vertical=False):
 
             for order in ready_kitchenorders:
                     iko_order, res = IkoOrder.objects.get_or_create(ikoid=order['Id'], number=order['Number'])
-                    if not iko_order.is_voiced:
-                        orders_need_voice.append(order['Number'])
-                        iko_order.is_voiced = True
-                        iko_order.save()
+                    if new_voice:
+                        if not iko_order.is_voiced:
+                            orders_need_voice.append(order['Number'])
+                            iko_order.is_voiced = True
+                            iko_order.save()
                     display_ready_orders.append({'servery': '', 'daily_number': order['Number']})
 
         except Exception as e:
