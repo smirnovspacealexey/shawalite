@@ -79,17 +79,14 @@
 
 
 
-var listVoice = [  {% for order_need_voice in orders_need_voice %}"{{order_need_voice}}", {% endfor %}];
-let index = 0;
+listVoice = [  {% for order_need_voice in orders_need_voice %}"{{order_need_voice}}", {% endfor %}];
+VoiceIndex = 0;
 
-function processItem(item) {
-    console.log("Обрабатываем элемент:", item);
-}
 
 const intervalId = setInterval(() => {
-    if (index < listVoice.length) {
-        voiceMe("номер " + listVoice[index] + "готов"); 
-        index++; 
+    if (VoiceIndex < listVoice.length) {
+        voiceMe("номер " + listVoice[VoiceIndex] + "готов"); 
+        VoiceIndex++; 
     } else {
         clearInterval(intervalId); 
         console.log("Все элементы обработаны.");

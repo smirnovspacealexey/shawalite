@@ -252,7 +252,8 @@
 
 <script>
 let awaitVoice = 1000;
-    
+let listVoice = [];
+let VoiceIndex;
 function voiceMe(txt) {
     window.speechSynthesis.onvoiceschanged = () => {
     const voices = window.speechSynthesis.getVoices();
