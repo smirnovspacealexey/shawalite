@@ -74,17 +74,27 @@
 
 {% if new_voice %}
 <script>
-let awaitVoice = 1000;
 
-  {% for order_need_voice in orders_need_voice %}
 
-      setTimeout(function () {
-          voiceMe("номер " + {order_need_voice} + "готов");
-      }, awaitVoice);
 
-      awaitVoice += 1000;
 
-  {% endfor %}
+
+var listVoice = [  {% for order_need_voice in orders_need_voice %}"{{order_need_voice}}", {% endfor %}];
+let index = 0;
+
+function processItem(item) {
+    console.log("Обрабатываем элемент:", item);
+}
+
+const intervalId = setInterval(() => {
+    if (index < list.length) {
+        voiceMe("номер " + list[index] + "готов"); 
+        index++; 
+    } else {
+        clearInterval(intervalId); 
+        console.log("Все элементы обработаны.");
+    }
+}, 2000); 
 
 
 </script>

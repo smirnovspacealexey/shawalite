@@ -250,7 +250,9 @@
 
 
 
-<script>    
+<script>
+let awaitVoice = 1000;
+    
 function voiceMe(txt) {
     window.speechSynthesis.onvoiceschanged = () => {
     const voices = window.speechSynthesis.getVoices();
@@ -259,6 +261,7 @@ function voiceMe(txt) {
     if (russianVoice) {
         const utterance = new SpeechSynthesisUtterance(txt);
         utterance.voice = russianVoice;
+        utterance.pitch = 2;
         utterance.lang = 'ru-RU';
         window.speechSynthesis.speak(utterance);        
     } else {
