@@ -45,6 +45,7 @@ import sys
 import os
 import re
 import pandas as pd
+from apps.iko.models import IkoOrder
 import subprocess
 
 logger = logging.getLogger(__name__)
@@ -1361,14 +1362,20 @@ def buyer_queue_ajax(request, vertical=False):
     display_open_orders = []
     display_ready_orders = []
 
+    orders_need_voice = []
+
     # if result['success']:
     if True:
         try:
             for order in wait_kitchenorders:
                     display_open_orders.append({'servery': '', 'daily_number': order['Number']})
 
-
             for order in ready_kitchenorders:
+                    iko_order, res = IkoOrder.objects.get_or_create(ikoid=order['Id'], number=order['Number'])
+                    if not iko_order.is_voiced:
+                        orders_need_voice.append(order['Number'])
+                        iko_order.is_voiced = True
+                        iko_order.save()
                     display_ready_orders.append({'servery': '', 'daily_number': order['Number']})
 
         except Exception as e:
@@ -1385,6 +1392,8 @@ def buyer_queue_ajax(request, vertical=False):
         'vertical': vertical,
         'open_orders': display_open_orders,
         'ready_orders': display_ready_orders,
+        'orders_need_voice': orders_need_voice,
+        'is_voicing': is_voicing,
     }
 
     if vertical:

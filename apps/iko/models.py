@@ -18,3 +18,12 @@ class iikoSettings(models.Model):
     def get_active():
         return iikoSettings.objects.filter(active=True).last()
 
+
+class IkoOrder(models.Model):
+    ikoid = models.CharField(max_length=200, blank=True, null=True)
+    number = models.CharField(max_length=200, blank=True, null=True)
+    is_voiced = models.BooleanField(default=False, verbose_name="Is Voiced")
+    datetime = models.DateTimeField('дата, время', default=timezone.now)
+
+    def __str__(self):
+        return f'{self.number} - {self.datetime}'
