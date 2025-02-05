@@ -72,6 +72,7 @@ def pull_kitchenorders(idiko=None):
     if idiko:
         print(idiko)
         iko = iikoSettings.objects.filter(id=int(idiko)).last()
+        iko.currenttoken = '22'
     if not iko:
         iko = iikoSettings.get_active()
 
