@@ -80,7 +80,7 @@ def pull_kitchenorders(idiko=None):
         iko.orders = data
         iko.save()
     else:
-        data = json.loads(iko.orders)
+        data = eval(iko.orders)
 
 
     try:
