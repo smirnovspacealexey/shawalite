@@ -57,7 +57,7 @@ def get_kitchenorders(idiko=None):
 
     url = iko.url
     response = requests.get(url + 'kitchenorders/', params=params)
-    response.raise_for_status()
+    # response.raise_for_status()
 
     data = response.json()
     print(data)
@@ -75,11 +75,13 @@ def pull_kitchenorders(idiko=None):
     # Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
     if current_mill - int(iko.last_getting) > 20000:
+        Log.add_new("from iko", 'Iiko', title2='orders')
         iko.last_getting = current_mill
         data = get_kitchenorders(idiko)
         iko.orders = data
         iko.save()
     else:
+        Log.add_new("from base", 'Iiko', title2='orders')
         data = eval(iko.orders)
 
 
