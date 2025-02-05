@@ -2,6 +2,7 @@ import requests
 from .models import iikoSettings
 from apps.logs.models import Log
 from datetime import datetime
+import json
 import time
 
 
@@ -66,59 +67,62 @@ def get_kitchenorders():
     return data
 
 
-def pull_kitchenorders():
-    iko = iikoSettings.get_active()
+def pull_kitchenorders(idiko=None):
+    iko = None
+    if idiko:
+        iko = iikoSettings.objects.filter(id=idiko).last()
+    if not iko:
+        iko = iikoSettings.get_active()
+
     current_mill = round(time.time() * 1000)
     # Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
-    if current_mill - int(iko.last_getting) > 15000:
+    if current_mill - int(iko.last_getting) > 20000:
         iko.last_getting = current_mill
-        iko.save()
-
         data = get_kitchenorders()
-        # return data
-        # Получаем текущую дату в формате YYYY-MM-DD
+        iko.orders = data
+        iko.save()
+    else:
+        data = json.load(iko.orders)
+
+
+    try:
         current_date = datetime.now().date()
+        # Log.add_new(str(data), 'Iiko', title2='new_data')
+        for order in data:
+             if "Items" in order:
+                order["Items"] = [
+                        item for item in order["Items"]
+                        if item["PrintTime"] and datetime.fromisoformat(item["PrintTime"].split("T")[0]).date() == current_date
+                    ]
 
+        data = [order for order in data if order["Items"]]
 
-        try:
+        # Log.add_new(str(data), 'Iiko', title2='new_data')
 
-            # Log.add_new(str(data), 'Iiko', title2='new_data')
-            for order in data:
-                 if "Items" in order:
-                    order["Items"] = [
-                            item for item in order["Items"]
-                            if item["PrintTime"] and datetime.fromisoformat(item["PrintTime"].split("T")[0]).date() == current_date
-                        ]
+        wait_orders = data.copy()
+        ready_orders = data.copy()
 
-            data = [order for order in data if order["Items"]]
+        wait_orders = [
+            order for order in wait_orders
+            if any(item['ProcessingCompleteTime'] is None for item in order['Items']) and all(item['ProcessingStatus'] in {0, 1, 2, 3, 4} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
+        ]
 
-            # Log.add_new(str(data), 'Iiko', title2='new_data')
+        # wait_orders = [order for order in wait_orders if order["Items"]]
 
-            wait_orders = data.copy()
-            ready_orders = data.copy()
+        ready_orders = [
+            order for order in ready_orders
+            if all(item['ProcessingCompleteTime'] is not None for item in order['Items']) and all(item['ProcessingStatus'] in {5, 6} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
+        ]
 
-            wait_orders = [
-                order for order in wait_orders
-                if any(item['ProcessingCompleteTime'] is None for item in order['Items']) and all(item['ProcessingStatus'] in {0, 1, 2, 3, 4} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
-            ]
+        # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
 
-            # wait_orders = [order for order in wait_orders if order["Items"]]
+        return wait_orders, ready_orders
 
-            ready_orders = [
-                order for order in ready_orders
-                if all(item['ProcessingCompleteTime'] is not None for item in order['Items']) and all(item['ProcessingStatus'] in {5, 6} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
-            ]
+    except Exception as e:
+        Log.add_new(str(e), 'Iiko', title2='error 1')
+        return None
 
-            # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
-
-            return wait_orders, ready_orders
-
-        except Exception as e:
-            Log.add_new(str(e), 'Iiko', title2='error 1')
-            return None
-
-    return None
 
 
 

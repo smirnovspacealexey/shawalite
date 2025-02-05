@@ -8,6 +8,7 @@ class iikoSettings(models.Model):
     active = models.BooleanField('active', default=True)
     currenttoken = models.CharField(max_length=200, default='')
     last_getting = models.CharField(max_length=200)
+    orders = models.TextField()
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if self.active:
@@ -17,6 +18,9 @@ class iikoSettings(models.Model):
     @staticmethod
     def get_active():
         return iikoSettings.objects.filter(active=True).last()
+
+    def __str__(self):
+        return f'?iko={self.id}'
 
 
 class IkoOrder(models.Model):
