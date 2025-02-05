@@ -83,7 +83,7 @@ def pull_kitchenorders(idiko=None):
         iko.orders = data
         iko.save()
     else:
-        data = json.load(iko.orders)
+        data = json.loads(iko.orders)
 
 
     try:

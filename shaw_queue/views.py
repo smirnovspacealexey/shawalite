@@ -1218,6 +1218,8 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
     is_voicing = int(request.GET.get('is_voicing', 0))
     new_voice = int(request.GET.get('new_voice', 0))
 
+    idiko = request.GET.get('iko', None)
+
     device_ip = request.META.get('HTTP_X_REAL_IP', '') or request.META.get('HTTP_X_FORWARDED_FOR', '')
     if DEBUG_SERVERY:
         device_ip = '127.0.0.1'
@@ -1283,7 +1285,8 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
                          ready_orders],
         'carousel_images': carousel_images,
         'is_voicing': True if is_voicing == 1 else False,
-        'new_voice': True if new_voice == 1 else False
+        'new_voice': True if new_voice == 1 else False,
+        'idiko': True if idiko == 1 else False
     }
 
     if vertical:
