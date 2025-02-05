@@ -57,7 +57,7 @@ def get_kitchenorders(idiko=None):
 
     url = iko.url
     response = requests.get(url + 'kitchenorders/', params=params)
-    # response.raise_for_status()
+    response.raise_for_status()
 
     data = response.json()
     print(data)
