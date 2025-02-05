@@ -76,16 +76,16 @@ def pull_kitchenorders(idiko=None):
 
     if current_mill - int(iko.last_getting) > 20000:
         try:
-            Log.add_new("from iko", 'Iiko', title2='orders')
             iko.last_getting = current_mill
             data = get_kitchenorders(idiko)
             iko.orders = data
             iko.save()
+            Log.add_new("from iko", 'Iiko', title2='orders')
         except Exception as e:
             Log.add_new(str(e), 'Iiko', title2='error 2')
-            Log.add_new("from base", 'Iiko', title2='orders')
             data = eval(iko.orders)
-        return None
+            Log.add_new("from base", 'Iiko', title2='orders')
+
     else:
         Log.add_new("from base", 'Iiko', title2='orders')
         data = eval(iko.orders)
