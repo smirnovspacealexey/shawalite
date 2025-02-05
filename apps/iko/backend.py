@@ -25,16 +25,16 @@ def get_token(idiko=None):
 
     except requests.exceptions.HTTPError as err:
         print(f'HTTP error occurred: {err}')  # Выводит ошибку HTTP
-        Log.add_new(f'HTTP error occurred: {err}', 'Iiko', title2='get_token()')
+        Log.add_new(f'HTTP error occurred: {err}', 'Iiko', title2='get_token()' + ', ' + str(iko))
     except requests.exceptions.ConnectionError as err:
         print(f'Connection error occurred: {err}')  # Выводит ошибку соединения
-        Log.add_new(f'Connection error occurred: {err}', 'Iiko', title2='get_token()')
+        Log.add_new(f'Connection error occurred: {err}', 'Iiko', title2='get_token()' + ', ' + str(iko))
     except requests.exceptions.Timeout as err:
         print(f'Timeout error occurred: {err}')  # Выводит ошибку таймаута
-        Log.add_new(f'Timeout error occurred: {err}', 'Iiko', title2='get_token()')
+        Log.add_new(f'Timeout error occurred: {err}', 'Iiko', title2='get_token()' + ', ' + str(iko))
     except requests.exceptions.RequestException as err:
         print(f'Request error occurred: {err}')  # Выводит любую другую ошибку запроса
-        Log.add_new(f'Request error occurred: {err}', 'Iiko', title2='get_token()')
+        Log.add_new(f'Request error occurred: {err}', 'Iiko', title2='get_token()' + ', ' + str(iko))
 
 
 def drop_token(idiko=None):
@@ -74,16 +74,21 @@ def pull_kitchenorders(idiko=None):
     current_mill = round(time.time() * 1000)
     # Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
-    if current_mill - int(iko.last_getting) > 40000:
-        Log.add_new("from iko", 'Iiko', title2='orders')
-        iko.last_getting = current_mill
-        data = get_kitchenorders(idiko)
-        iko.orders = data
-        iko.save()
+    if current_mill - int(iko.last_getting) > 20000:
+        try:
+            Log.add_new("from iko", 'Iiko', title2='orders')
+            iko.last_getting = current_mill
+            data = get_kitchenorders(idiko)
+            iko.orders = data
+            iko.save()
+        except Exception as e:
+            Log.add_new(str(e), 'Iiko', title2='error 2')
+            Log.add_new("from base", 'Iiko', title2='orders')
+            data = eval(iko.orders)
+        return None
     else:
         Log.add_new("from base", 'Iiko', title2='orders')
         data = eval(iko.orders)
-
 
     try:
         current_date = datetime.now().date()
