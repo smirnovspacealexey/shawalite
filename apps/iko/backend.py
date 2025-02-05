@@ -79,18 +79,18 @@ def pull_kitchenorders(idiko=None):
 
     if current_mill - int(iko.last_getting) > iko.last_getting_live:
         try:
-            iko.last_getting = current_mill
             data = get_kitchenorders(idiko)
             iko.orders = data
+            iko.last_getting = current_mill
             iko.save()
-            Log.add_new("from iko", 'Iiko', title2='orders', title3=str(iko))
+            # Log.add_new("from iko", 'Iiko', title2='orders', title3=str(iko))
         except Exception as e:
             Log.add_new(str(e), 'Iiko', title2='error 2')
             data = eval(iko.orders)
-            Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
+            # Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
 
     else:
-        Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
+        # Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
         data = eval(iko.orders)
 
     try:
