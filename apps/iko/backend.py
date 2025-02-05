@@ -6,8 +6,8 @@ import json
 import time
 
 
-def get_token():
-    iko = iikoSettings.get_active()
+def get_token(idiko=None):
+    iko = iikoSettings.get_active(idiko)
     url = iko.url
     err = ''
     try:
@@ -37,8 +37,8 @@ def get_token():
         Log.add_new(f'Request error occurred: {err}', 'Iiko', title2='get_token()')
 
 
-def drop_token():
-    iko = iikoSettings.get_active()
+def drop_token(idiko=None):
+    iko = iikoSettings.get_active(idiko)
     url = iko.url
     response = requests.get(url + 'logout/' + iko.currenttoken)
     response.raise_for_status()
@@ -48,10 +48,10 @@ def drop_token():
     return data
 
 
-def get_kitchenorders():
-    drop_token()
-    get_token()
-    iko = iikoSettings.get_active()
+def get_kitchenorders(idiko=None):
+    drop_token(idiko)
+    get_token(idiko)
+    iko = iikoSettings.get_active(idiko)
 
     params = {"key": iko.currenttoken}
 
@@ -68,21 +68,15 @@ def get_kitchenorders():
 
 
 def pull_kitchenorders(idiko=None):
-    iko = None
 
-    if idiko:
-        iko = iikoSettings.objects.filter(id=int(idiko)).last()
-
-    Log.add_new(str(iko), 'Iiko', title2='iko id')
-    if not iko:
-        iko = iikoSettings.get_active()
+    iko = iikoSettings.get_active(idiko)
 
     current_mill = round(time.time() * 1000)
     # Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
     if current_mill - int(iko.last_getting) > 20000:
         iko.last_getting = current_mill
-        data = get_kitchenorders()
+        data = get_kitchenorders(idiko)
         iko.orders = data
         iko.save()
     else:

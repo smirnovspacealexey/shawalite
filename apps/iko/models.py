@@ -16,8 +16,11 @@ class iikoSettings(models.Model):
         super().save()
 
     @staticmethod
-    def get_active():
-        return iikoSettings.objects.filter(active=True).last()
+    def get_active(idiko=None):
+        if idiko:
+            return iikoSettings.objects.filter(id=int(idiko)).last()
+        else:
+            return iikoSettings.objects.filter(active=True).last()
 
     def __str__(self):
         return f'?iko={self.id}'
