@@ -53,7 +53,7 @@ def get_kitchenorders(idiko=None):
 
     current_mill = round(time.time() * 1000)
 
-    if current_mill - int(iko.last_update_token) > 1_800_000:
+    if current_mill - int(iko.last_update_token) > iko.last_update_token_live:
         drop_token(idiko)
         get_token(idiko)
 
@@ -75,7 +75,7 @@ def pull_kitchenorders(idiko=None):
 
     current_mill = round(time.time() * 1000)
 
-    if current_mill - int(iko.last_getting) > 20000:
+    if current_mill - int(iko.last_getting) > iko.last_getting_live:
         try:
             iko.last_getting = current_mill
             data = get_kitchenorders(idiko)

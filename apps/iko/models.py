@@ -9,9 +9,9 @@ class iikoSettings(models.Model):
     active = models.BooleanField('active', default=True)
     currenttoken = models.CharField(max_length=200, default='')
     last_update_token = models.CharField(max_length=200)
-    last_update_token_live = models.IntegerField(verbose_name="время жизни тоенна в миллисекундах")
+    last_update_token_live = models.IntegerField(verbose_name="время жизни тоенна в миллисекундах", default=1800000)
     last_getting = models.CharField(max_length=200)
-    last_getting_live = models.IntegerField(verbose_name="время выжидания между запросами к iko")
+    last_getting_live = models.IntegerField(verbose_name="время выжидания между запросами к iko", default=20000)
     orders = models.TextField()
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
