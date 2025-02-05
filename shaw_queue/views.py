@@ -1286,7 +1286,7 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
         'carousel_images': carousel_images,
         'is_voicing': True if is_voicing == 1 else False,
         'new_voice': True if new_voice == 1 else False,
-        'idiko': True if idiko == 1 else False
+        'idiko': idiko
     }
 
     if vertical:
