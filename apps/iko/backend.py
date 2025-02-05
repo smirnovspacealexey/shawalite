@@ -49,12 +49,15 @@ def drop_token(idiko=None):
 
 
 def get_kitchenorders(idiko=None):
-    drop_token(idiko)
-    get_token(idiko)
     iko = iikoSettings.get_active(idiko)
 
-    params = {"key": iko.currenttoken}
+    current_mill = round(time.time() * 1000)
 
+    if current_mill - int(iko.last_update_token) > 1_800_000:
+        drop_token(idiko)
+        get_token(idiko)
+
+    params = {"key": iko.currenttoken}
     url = iko.url
     response = requests.get(url + 'kitchenorders/', params=params)
     response.raise_for_status()
@@ -72,7 +75,6 @@ def pull_kitchenorders(idiko=None):
     iko = iikoSettings.get_active(idiko)
 
     current_mill = round(time.time() * 1000)
-    # Log.add_new(str(current_mill) + ' ' + str(iko.last_getting), 'Iiko', title2='drop_token()')
 
     if current_mill - int(iko.last_getting) > 20000:
         try:

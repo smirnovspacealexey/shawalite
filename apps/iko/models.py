@@ -7,6 +7,7 @@ class iikoSettings(models.Model):
     url = models.CharField(max_length=200)
     active = models.BooleanField('active', default=True)
     currenttoken = models.CharField(max_length=200, default='')
+    last_update_token = models.CharField(max_length=200)
     last_getting = models.CharField(max_length=200)
     orders = models.TextField()
 
