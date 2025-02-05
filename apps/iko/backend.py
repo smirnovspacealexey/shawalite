@@ -20,7 +20,7 @@ def get_token(idiko=None):
 
         iko.currenttoken = data
         iko.save()
-        Log.add_new(data, 'Iiko', title2='get_token()')
+        Log.add_new(data, 'Iiko', title2='get_token()' + ', ' + str(iko))
         return data
 
     except requests.exceptions.HTTPError as err:
