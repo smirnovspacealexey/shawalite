@@ -34,7 +34,7 @@ class iikoSettings(models.Model):
 
     @property
     def lat_req(self):
-        seconds = int(self.last_update_token) / 1000.0
+        seconds = int(self.last_getting) / 1000.0
         dt = datetime.datetime.fromtimestamp(seconds)
         return dt.strftime('%Y-%m-%d %H:%M:%S')
 

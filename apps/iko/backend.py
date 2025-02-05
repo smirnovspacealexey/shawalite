@@ -55,6 +55,7 @@ def get_kitchenorders(idiko=None):
 
     if current_mill - int(iko.last_update_token) > iko.last_update_token_live:
         iko.last_update_token = current_mill
+        iko.save()
         drop_token(idiko)
         get_token(idiko)
 
