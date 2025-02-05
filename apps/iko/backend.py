@@ -66,7 +66,6 @@ def get_kitchenorders(idiko=None):
     print(data)
     # Log.add_new(data, 'Iiko', title2='get_kitchenorders()')
 
-
     return data
 
 

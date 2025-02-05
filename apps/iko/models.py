@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.utils import timezone
+import datetime
 
 
 class iikoSettings(models.Model):
@@ -8,7 +9,9 @@ class iikoSettings(models.Model):
     active = models.BooleanField('active', default=True)
     currenttoken = models.CharField(max_length=200, default='')
     last_update_token = models.CharField(max_length=200)
+    last_update_token_live = models.IntegerField(verbose_name="время жизни тоенна в миллисекундах")
     last_getting = models.CharField(max_length=200)
+    last_getting_live = models.IntegerField(verbose_name="время выжидания между запросами к iko")
     orders = models.TextField()
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
@@ -22,6 +25,18 @@ class iikoSettings(models.Model):
             return iikoSettings.objects.filter(id=int(idiko)).last()
         else:
             return iikoSettings.objects.filter(active=True).last()
+
+    @property
+    def lat_token(self):
+        seconds = int(self.last_update_token) / 1000.0
+        dt = datetime.datetime.fromtimestamp(seconds)
+        return dt.strftime('%Y-%m-%d %H:%M:%S')
+
+    @property
+    def lat_req(self):
+        seconds = int(self.last_update_token) / 1000.0
+        dt = datetime.datetime.fromtimestamp(seconds)
+        return dt.strftime('%Y-%m-%d %H:%M:%S')
 
     def __str__(self):
         return f'?iko={self.id}'
