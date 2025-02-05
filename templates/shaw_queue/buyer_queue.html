@@ -81,7 +81,7 @@
         div.open-order-display, div.ready-order-display {font-size: 110px;}
     {% endif %}
 </style>
-<input hidden id="urls" data-refresh-url="{% if vertical %}{% url 'buyer_queue_vertical_ajax' %}{% elif new %}{% url 'buyer_queue_ajax_new' %}{% else %}{% url 'buyer_queue_ajax' %}{% endif %}{% if idiko %}&iko={{ idiko }}{% endif %}" data-unvoice-url="{% url 'unvoice_order' %}">
+<input hidden id="urls" data-refresh-url="{% if vertical %}{% url 'buyer_queue_vertical_ajax' %}{% elif new %}{% url 'buyer_queue_ajax_new' %}{% else %}{% url 'buyer_queue_ajax' %}{% endif %}{% if idiko %}?iko={{ idiko }}{% endif %}" data-unvoice-url="{% url 'unvoice_order' %}">
 {% include 'shaw_queue/buyer_queue_ajax.html' %}
 
 {% if not vertical %}
