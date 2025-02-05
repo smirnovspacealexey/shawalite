@@ -1355,7 +1355,6 @@ def buyer_queue_ajax(request, vertical=False):
     is_voicing = request.GET.get('is_voicing', 0)
     new_voice = request.GET.get('new_voice', 0)
     idiko = request.GET.get('iko', None)
-    print(new_voice)
 
     wait_kitchenorders, ready_kitchenorders = pull_kitchenorders(idiko)
 
