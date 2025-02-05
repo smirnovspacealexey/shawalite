@@ -85,6 +85,7 @@ def pull_kitchenorders(idiko=None):
         except Exception as e:
             Log.add_new(str(e), 'Iiko', title2='error 2')
             data = eval(iko.orders)
+            drop_token(idiko)
             Log.add_new("from base", 'Iiko', title2='orders')
 
     else:
