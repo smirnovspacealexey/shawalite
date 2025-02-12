@@ -1224,7 +1224,7 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
     audios = '{'
 
     for audio_number in audio_numbers:
-        audios += f'"{audio_number.name}": "{audio_number.audio.url}"'
+        audios += f'"{audio_number.name}": "{audio_number.audio.url}",'
 
     audios += '}'
 
