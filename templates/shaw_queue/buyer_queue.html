@@ -268,12 +268,18 @@ function voiceMe(txt) {
         }
     };
 }
+let audios = {{ audios | safe }};
+
+function playAudio(num) { 
+    let audio = new Audio(audios[num]);
+    audio.play();
+}
 
 function voiceList(listVoice) {
     let VoiceIndex = 0;
     let intervalId = setInterval(() => {
         if (VoiceIndex < listVoice.length) {
-            {#voiceMe("номер " + listVoice[VoiceIndex]);#}
+            playAudio(listVoice[VoiceIndex]);
             VoiceIndex++;
         } else {
             clearInterval(intervalId);
