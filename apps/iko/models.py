@@ -50,3 +50,12 @@ class IkoOrder(models.Model):
 
     def __str__(self):
         return f'{self.number} - {self.datetime}'
+
+
+class AudioNumber(models.Model):
+    name = models.CharField(max_length=200)
+    audio = models.FileField(upload_to="audio", blank=True, null=True, verbose_name="audio")
+
+    def __str__(self):
+        return f'{self.pk} - {self.name}'
+

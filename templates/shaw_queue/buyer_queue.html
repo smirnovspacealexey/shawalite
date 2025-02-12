@@ -274,7 +274,7 @@ function voiceList(listVoice) {
     let VoiceIndex = 0;
     let intervalId = setInterval(() => {
         if (VoiceIndex < listVoice.length) {
-            voiceMe("номер " + listVoice[VoiceIndex] + " готов");
+            voiceMe("номер " + listVoice[VoiceIndex]);
             VoiceIndex++;
         } else {
             clearInterval(intervalId);
