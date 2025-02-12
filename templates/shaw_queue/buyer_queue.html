@@ -268,13 +268,19 @@ function voiceMe(txt) {
         }
     };
 }
+let audios = {{ audios | safe }};
 
+function playAudio(num) { 
+const audio = new Audio(audios[num]);
+audio.play();
+}
 
 function voiceList(listVoice) {
     let VoiceIndex = 0;
     let intervalId = setInterval(() => {
         if (VoiceIndex < listVoice.length) {
-            voiceMe("номер " + listVoice[VoiceIndex]);
+            {#voiceMe("номер " + listVoice[VoiceIndex]);#}
+            playAudio(listVoice[VoiceIndex]);
             VoiceIndex++;
         } else {
             clearInterval(intervalId);
@@ -283,10 +289,5 @@ function voiceList(listVoice) {
     }, 2000);
 }
 
-let audios = {{ audios | safe }};
 
-function playAudio(num) { 
-const audio = new Audio("/media/audio/bf219b1f07ea07d8972e07b9273d19c4.mp3");
-audio.play();
-}
 </script>
