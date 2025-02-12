@@ -283,7 +283,7 @@ function voiceList(listVoice) {
     }, 2000);
 }
 
-let audios = {{ audios }};
+let audios = {{ audios | safe }};
 
 function playAudio(num) { 
 const audio = new Audio("/media/audio/bf219b1f07ea07d8972e07b9273d19c4.mp3");
