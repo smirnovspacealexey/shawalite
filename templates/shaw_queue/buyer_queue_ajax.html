@@ -83,6 +83,11 @@ voiceList([{% for order_need_voice in orders_need_voice %}"{{order_need_voice}}"
 
 
 
+  function playAudio() {
+    const audio = new Audio("/media/audio/bf219b1f07ea07d8972e07b9273d19c4.mp3");
+    audio.play();
+  }
+
 
 </script>
 {% endif %}
