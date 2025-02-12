@@ -45,7 +45,7 @@ import sys
 import os
 import re
 import pandas as pd
-from apps.iko.models import IkoOrder
+from apps.iko.models import IkoOrder, AudioNumber
 import subprocess
 
 logger = logging.getLogger(__name__)
@@ -1220,6 +1220,14 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
 
     idiko = request.GET.get('iko', None)
 
+    audio_numbers = AudioNumber.objects.all()
+    audios = '{'
+
+    for audio_number in audio_numbers:
+        audios += f'"{audio_number.name}": "{audio_number.audio.url}"'
+
+    audios += '}'
+
     device_ip = request.META.get('HTTP_X_REAL_IP', '') or request.META.get('HTTP_X_FORWARDED_FOR', '')
     if DEBUG_SERVERY:
         device_ip = '127.0.0.1'
@@ -1286,7 +1294,8 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
         'carousel_images': carousel_images,
         'is_voicing': True if is_voicing == 1 else False,
         'new_voice': True if new_voice == 1 else False,
-        'idiko': idiko
+        'idiko': idiko,
+        'audios': audios
     }
 
     if vertical:
