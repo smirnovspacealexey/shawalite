@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'jquery',
     'ymaps',
     'apps.logs',
-    'apps.iko'
+    'apps.iko',
+    'django_admin_row_actions',
 ]
 
 MIDDLEWARE = [

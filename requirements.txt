@@ -19,4 +19,5 @@ XlsxWriter==3.0.3
 defusedxml==0.7.1
 openpyxl==3.0.10
 ymaps==1.1
+django-admin-row-actions==0.10.0
 

@@ -270,9 +270,36 @@ function voiceMe(txt) {
 }
 let audios = {{ audios | safe }};
 
-function playAudio(num) { 
-    let audio = new Audio(audios[num]);
-    audio.play();
+
+function playAudio(number) {
+      // Разбиваем число на сотни, десятки и единицы
+      const hundreds = Math.floor(number / 100) * 100;
+      const remainder = number % 100;
+      const tens = Math.floor(remainder / 10) * 10;
+      const units = remainder % 10;
+    
+      // Создаем массив для воспроизведения
+      const parts = ["заказ"]; // Начинаем с "заказ"
+    
+      if (hundreds > 0) {
+        parts.push(hundreds.toString());
+      }
+      if (tens > 0) {
+        parts.push(tens.toString());
+      }
+      if (units > 0) {
+        parts.push(units.toString());
+      }
+    
+      // Воспроизводим аудиофайлы по очереди
+      let delay = 0;
+      parts.forEach((part, index) => {
+        setTimeout(() => {
+          const audio = new Audio(audioFiles[part]);
+          audio.play();
+        }, delay);
+        delay += 1000; // Задержка между воспроизведением частей (1 секунда)
+      });
 }
 
 function voiceList(listVoice) {

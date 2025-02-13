@@ -1,0 +1,33 @@
+{% extends "admin/change_list.html" %}
+
+
+{% block extrahead %}
+  {{ block.super }}  {# Родительский контент #}
+  <script>
+    // Определяем функцию uploadAudio в глобальной области видимости
+    function uploadAudio(objId) {
+      const form = document.getElementById(`upload-form-${objId}`);
+      if (!form) {
+        console.error(`Form with ID upload-form-${objId} not found!`);
+        return;
+      }
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': '{{ csrf_token }}',  {# Добавляем CSRF-токен #}
+        },
+      }).then(response => {
+        if (response.ok) {
+          window.location.reload();  {# Перезагружаем страницу после успешной загрузки #}
+        }
+      });
+    }
+
+    // Убедимся, что DOM загружен перед использованием функций
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM fully loaded and parsed');
+    });
+  </script>
+{% endblock %}
