@@ -284,16 +284,22 @@ function playAudio(number) {
       if (hundreds > 0) {
         parts.push(hundreds.toString());
       }
-      if (tens > 0) {
-        parts.push(tens.toString());
+      if (Number(number.slice(-2)) < 20) {
+           parts.push(number.slice(-2));          
+      } else {
+          if (tens > 0) {
+            parts.push(tens.toString());
+          }
+          if (units > 0) {
+            parts.push(units.toString());
+          }         
       }
-      if (units > 0) {
-        parts.push(units.toString());
-      }
+      
+
     
       // Воспроизводим аудиофайлы по очереди
       let delay = 0;
-      parts.forEach((part, index) => {
+      parts.forEach((part, index) => {          
         setTimeout(() => {
           const audio = new Audio(audios[part]);
           audio.play();
