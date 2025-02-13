@@ -295,7 +295,7 @@ function playAudio(number) {
       let delay = 0;
       parts.forEach((part, index) => {
         setTimeout(() => {
-          const audio = new Audio(audioFiles[part]);
+          const audio = new Audio(audios[part]);
           audio.play();
         }, delay);
         delay += 1000; // Задержка между воспроизведением частей (1 секунда)
