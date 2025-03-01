@@ -20,7 +20,7 @@ def get_token(idiko=None):
 
         iko.currenttoken = data
         iko.save()
-        Log.add_new(data, 'Iiko', title2='get_token()' + ', ' + str(iko))
+        # Log.add_new(data, 'Iiko', title2='get_token()' + ', ' + str(iko))
         return data
 
     except requests.exceptions.HTTPError as err:
@@ -44,7 +44,7 @@ def drop_token(idiko=None):
     response.raise_for_status()
     data = response.json()
     print(data)
-    Log.add_new(data, 'Iiko', title2='drop_token()')
+    # Log.add_new(data, 'Iiko', title2='drop_token()')
     return data
 
 
@@ -146,7 +146,7 @@ def filter_items(items):
                 serve_time_date = datetime.strptime(serve_time,
                                                     "%Y-%m-%dT%H:%M:%S.%f%z").date()  # Формат времени в вашем JSON
 
-                Log.add_new(str(serve_time_date) + '   ' + str(current_date), 'Iiko', title2='current_date')
+                # Log.add_new(str(serve_time_date) + '   ' + str(current_date), 'Iiko', title2='current_date')
 
                 if serve_time_date == current_date:
                     filtered_items.append(item)
