@@ -143,6 +143,8 @@ voiceList([{% for order_need_voice in orders_need_voice %}"{{order_need_voice}}"
 
 {% endif %}
 
+
+{% if not vertical %}
 <style>
 .open-orders-column, .ready-orders-column {
     display: inline-block;
@@ -150,4 +152,34 @@ voiceList([{% for order_need_voice in orders_need_voice %}"{{order_need_voice}}"
     width: 48%; 
     margin-right: 2%; 
 }
+
+
+#page-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.open-orders-container, .ready-orders-container {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+.open-orders-column, .ready-orders-column {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin-right: 2%;
+}
+
+.open-order-display, .ready-order-display {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.order-display-number {
+    font-weight: bold;
+}
 </style>
+{% endif %}
