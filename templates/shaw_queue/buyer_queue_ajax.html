@@ -23,7 +23,6 @@
         {% empty %}
         {% endfor %}
     </div>
-    {% if vertical %}
         <div class="open-orders-container-vertical">
             {% for open_order in display_open_orders2 %}
                 <div class="open-order-display">
@@ -34,7 +33,6 @@
             {% empty %}
             {% endfor %}
         </div>
-    {% endif %}
 
     {% if vertical %}<div class="center-vertical-line"></div>{% endif %}
     <div class="ready-orders-container{% if vertical %}-vertical{% endif %}">
@@ -57,7 +55,6 @@
         {% empty %}
         {% endfor %}
     </div>
-    {% if vertical %}
         <div class="ready-orders-container-vertical">
             {% for ready_order in display_ready_orders2 %}
                 <div class="ready-order-display">
@@ -69,7 +66,6 @@
             {% empty %}
             {% endfor %}
         </div>
-    {% endif %}
 </div>
 
 {% if new_voice %}

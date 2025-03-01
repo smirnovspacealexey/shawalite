@@ -1298,24 +1298,24 @@ def buyer_queue(request, vertical=False, black=False, px=None, new=False):
         'audios': audios
     }
 
-    if vertical:
-        length = len(display_ready_orders) + 1
-        middle_index = length // 2
-        display_ready_orders2 = display_ready_orders[middle_index:]
-        display_ready_orders = display_ready_orders[:middle_index]
+    # if vertical:
+    length = len(display_ready_orders) + 1
+    middle_index = length // 2
+    display_ready_orders2 = display_ready_orders[middle_index:]
+    display_ready_orders = display_ready_orders[:middle_index]
 
-        length = len(display_open_orders) + 1
-        middle_index = length // 2
-        display_open_orders2 = display_open_orders[middle_index:]
-        display_open_orders = display_open_orders[:middle_index]
+    length = len(display_open_orders) + 1
+    middle_index = length // 2
+    display_open_orders2 = display_open_orders[middle_index:]
+    display_open_orders = display_open_orders[:middle_index]
 
-        context.update({'display_open_orders': display_open_orders,
-                        'display_open_orders2': display_open_orders2,
-                        'display_ready_orders': display_ready_orders,
-                        'display_ready_orders2': display_ready_orders2, })
-    else:
-        context.update({'display_open_orders': display_open_orders,
-                        'display_ready_orders': display_ready_orders,})
+    context.update({'display_open_orders': display_open_orders,
+                    'display_open_orders2': display_open_orders2,
+                    'display_ready_orders': display_ready_orders,
+                    'display_ready_orders2': display_ready_orders2, })
+    # else:
+    #     context.update({'display_open_orders': display_open_orders,
+    #                     'display_ready_orders': display_ready_orders,})
 
     template = loader.get_template('shaw_queue/buyer_queue.html')
     return HttpResponse(template.render(context, request))

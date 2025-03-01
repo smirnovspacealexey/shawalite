@@ -54,12 +54,12 @@
     const timereboot = getParameterByName('timereboot');
     
     if (timereboot && !isNaN(timereboot)) {
-        const minutes = parseInt(timereboot, 10); // Преобразуем в число
-        const milliseconds = minutes * 60 * 1000; // Переводим минуты в миллисекунды
+        const minutes = parseInt(timereboot, 10); 
+        const milliseconds = minutes * 60 * 1000; 
 
         setTimeout(() => {
             console.log('Перезагрузка страницы...');
-            window.location.reload(); // Перезагружаем страницу
+            window.location.reload(); 
         }, milliseconds);
     } 
 </script>
