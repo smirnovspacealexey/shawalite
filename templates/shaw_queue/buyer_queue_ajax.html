@@ -26,6 +26,7 @@
         {% endfor %}
     
     {% else %}
+        <div style="display: flex; justify-content: space-between;">
         <div class="open-orders-column">
             {% for open_order in display_open_orders %}
                 <div class="open-order-display">
@@ -46,6 +47,7 @@
                 </div>
             {% empty %}
             {% endfor %}
+        </div>
         </div>
     {% endif %}
     
