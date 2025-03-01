@@ -14,6 +14,8 @@
                 {% endif %}
             </div>
         {% endif %}
+    
+    {% if vertical %}
         {% for open_order in display_open_orders %}
             <div class="open-order-display">
             <span class="order-display-number">
@@ -22,6 +24,32 @@
             </div>
         {% empty %}
         {% endfor %}
+    
+    {% else %}
+        <div class="open-orders-column">
+            {% for open_order in display_open_orders %}
+                <div class="open-order-display">
+                    <span class="order-display-number">
+                        {{ open_order.daily_number }}
+                    </span>
+                </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+
+        <div class="open-orders-column">
+            {% for open_order in display_open_orders2 %}
+                <div class="open-order-display">
+                    <span class="order-display-number">
+                        {{ open_order.daily_number }}
+                    </span>
+                </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    
     </div>
     {% if vertical %}
         <div class="open-orders-container-vertical">
@@ -47,6 +75,7 @@
                 {% endif %}
             </div>
         {% endif %}
+    {% if vertical %}
         {% for ready_order in display_ready_orders %}
             <div class="ready-order-display">
             <span class="ready-order-display-number order-display-number">
@@ -56,6 +85,32 @@
             </div>
         {% empty %}
         {% endfor %}
+    {% else %}
+        
+        <div class="ready-orders-column">
+            {% for ready_order in display_ready_orders %}
+                <div class="ready-order-display">
+                    <span class="ready-order-display-number order-display-number">
+                        {{ ready_order.daily_number }}
+                    </span>
+                </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+
+        <div class="ready-orders-column">
+            {% for ready_order in display_ready_orders2 %}
+                <div class="ready-order-display">
+                    <span class="ready-order-display-number order-display-number">
+                        {{ ready_order.daily_number }}
+                    </span>
+                </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+               
+        
+    {% endif %}
     </div>
     {% if vertical %}
         <div class="ready-orders-container-vertical">
@@ -84,5 +139,15 @@ voiceList([{% for order_need_voice in orders_need_voice %}"{{order_need_voice}}"
 
 
 
-</script>
+</script>   
+
 {% endif %}
+
+<style>
+.open-orders-column, .ready-orders-column {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%; 
+    margin-right: 2%; 
+}
+</style>
