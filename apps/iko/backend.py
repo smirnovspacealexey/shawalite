@@ -85,17 +85,17 @@ def pull_kitchenorders(idiko=None):
             iko.save()
             # Log.add_new("from iko", 'Iiko', title2='orders', title3=str(iko))
         except Exception as e:
-            Log.add_new(str(e), 'Iiko', title2='error 2')
+            # Log.add_new(str(e), 'Iiko', title2='error 2')
             data = eval(iko.orders)
             # Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
 
     else:
-        Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
+        # Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
         data = eval(iko.orders)
 
     try:
         current_date = datetime.now().date()
-        Log.add_new(str(data), 'Iiko', title2='new_data')
+        # Log.add_new(str(data), 'Iiko', title2='new_data')
         for order in data:
              if "Items" in order:
                 order["Items"] = [
@@ -105,7 +105,7 @@ def pull_kitchenorders(idiko=None):
 
         data = [order for order in data if order["Items"]]
 
-        Log.add_new(str(data), 'Iiko', title2='new_data')
+        # Log.add_new(str(data), 'Iiko', title2='new_data')
 
         wait_orders = data.copy()
         ready_orders = data.copy()
