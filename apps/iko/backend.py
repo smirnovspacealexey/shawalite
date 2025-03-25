@@ -85,6 +85,7 @@ def pull_kitchenorders(idiko=None):
             iko.save()
             # Log.add_new("from iko", 'Iiko', title2='orders', title3=str(iko))
         except Exception as e:
+            print(e)
             # Log.add_new(str(e), 'Iiko', title2='error 2')
             data = eval(iko.orders)
             # Log.add_new("from base", 'Iiko', title2='orders', title3=str(iko))
