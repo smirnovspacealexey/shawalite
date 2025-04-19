@@ -272,25 +272,7 @@
 
 
 <script>
-function voiceMe(txt) {
-    window.speechSynthesis.onvoiceschanged = () => {
-        let voices = window.speechSynthesis.getVoices();
-        let russianVoice = voices.find(voice => voice.lang === 'ru-RU');
-        
-        if (russianVoice) {
-            let utterance = new SpeechSynthesisUtterance(txt);
-            utterance.voice = russianVoice;
-            utterance.pitch = 1;
-            utterance.lang = 'ru-RU';
-            window.speechSynthesis.speak(utterance); 
-            console.log(txt);
-        } else {
-            console.log("Русский голос не найден.");
-        }
-    };
-}
 let audios = {{ audios | safe }};
-
 
 function playAudio(number) {
       // Разбиваем число на сотни, десятки и единицы
@@ -306,7 +288,11 @@ function playAudio(number) {
         parts.push(hundreds.toString());
       }
       if (Number(number.slice(-2)) < 20) {
-           parts.push(number.slice(-2));          
+          if (Number(number.slice(-2)) < 10) {
+              parts.push(number.slice(-1));
+          } else {
+              parts.push(number.slice(-2));
+          }
       } else {
           if (tens > 0) {
             parts.push(tens.toString());
@@ -316,7 +302,6 @@ function playAudio(number) {
           }         
       }
       
-
     
       // Воспроизводим аудиофайлы по очереди
       let delay = 0;
@@ -325,15 +310,14 @@ function playAudio(number) {
           const audio = new Audio(audios[part]);
           audio.play();
         }, delay);
-        delay += 650; // Задержка между воспроизведением частей (1 секунда)
+        delay += 650; // Задержка между воспроизведением частей
       });
 }
 
 function voiceList(listVoice) {
     let VoiceIndex = 0;
     let intervalId = setInterval(() => {
-        if (VoiceIndex < listVoice.length) {
-            {#voiceMe("номер " + listVoice[VoiceIndex]);#}
+        if (VoiceIndex < listVoice.length) {           
             playAudio(listVoice[VoiceIndex]);
             VoiceIndex++;
         } else {
