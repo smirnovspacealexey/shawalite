@@ -249,7 +249,16 @@ def buyer_queue_ajax(request, vertical=False):
                     display_open_orders.append({'servery': '', 'daily_number': order['Number']})
 
             for order in ready_kitchenorders:
-                    iko_order, res = IkoOrder.objects.get_or_create(ikoid=order['Id'], number=order['Number'])
+                    iko_order = (
+                        IkoOrder.objects
+                        .filter(ikoid=order['Id'], number=order['Number'])
+                        .order_by('-id')  # Или по дате, если есть `created_at`
+                        .first()
+                    )
+
+                    if not iko_order:
+                        iko_order = IkoOrder.objects.create(ikoid=order['Id'], number=order['Number'])
+
                     if new_voice:
                         if not iko_order.is_voiced:
                             orders_need_voice.append(order['Number'])

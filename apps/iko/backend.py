@@ -108,22 +108,24 @@ def pull_kitchenorders(idiko=None):
 
         # Log.add_new(str(data), 'Iiko', title2='new_data')
 
-        wait_orders = data.copy()
-        ready_orders = data.copy()
+        # wait_orders = data.copy()
+        # ready_orders = data.copy()
 
-        wait_orders = [
-            order for order in wait_orders
-            if any(item['ProcessingCompleteTime'] is None for item in order['Items']) and all(item['ProcessingStatus'] in {0, 1, 2, 3, 4} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
-        ]
+        # wait_orders = [
+        #     order for order in wait_orders
+        #     if any(item['ProcessingCompleteTime'] is None for item in order['Items']) and all(item['ProcessingStatus'] in {0, 1, 2, 3, 4} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
+        # ]
 
         # wait_orders = [order for order in wait_orders if order["Items"]]
 
-        ready_orders = [
-            order for order in ready_orders
-            if all(item['ProcessingCompleteTime'] is not None for item in order['Items']) and all(item['ProcessingStatus'] in {5, 6} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
-        ]
+        # ready_orders = [
+        #     order for order in ready_orders
+        #     if all(item['ProcessingCompleteTime'] is not None for item in order['Items']) and all(item['ProcessingStatus'] in {5, 6} for item in order['Items']) and all(item['ServeTime'] is None for item in order['Items'])
+        # ]
 
         # Log.add_new(str(ready_orders), 'Iiko', title2='ready_orders')
+
+        wait_orders, ready_orders = split_orders(data)
 
         return wait_orders, ready_orders
 
@@ -160,3 +162,35 @@ def filter_items(items):
 
 
 
+def split_orders(orders):
+    wait_orders = []
+    ready_orders = []
+
+    for order in orders:
+        wait_items = [
+            item for item in order['Items']
+            if item['ProcessingCompleteTime'] is None
+            and item['ProcessingStatus'] in {0, 1, 2, 3, 4}
+            and item['ServeTime'] is None
+        ]
+
+        ready_items = [
+            item for item in order['Items']
+            if item['ProcessingCompleteTime'] is not None
+            and item['ProcessingStatus'] in {5, 6}
+            and item['ServeTime'] is None
+        ]
+
+        if wait_items:
+            wait_orders.append({
+                **order,
+                'Items': wait_items
+            })
+
+        if ready_items:
+            ready_orders.append({
+                **order,
+                'Items': ready_items
+            })
+
+    return wait_orders, ready_orders
