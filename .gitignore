@@ -5,7 +5,10 @@
 *.pyc
 __pycache__
 db.sqlite3
-media
+
+/media/*
+!/media/system/
+!/media/system/**  
 my_settings.py
 
 
