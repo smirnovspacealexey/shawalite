@@ -274,6 +274,16 @@
 <script>
 let audios = {{ audios | safe }};
 
+
+for (const key in audios) {
+  const audioUrl = audios[key];
+  const audio = new Audio(audioUrl);
+  audio.preload = "auto"; 
+  
+  document.body.appendChild(audio);
+  audio.style.display = "none";
+}
+
 function playAudio(number) {
       // Разбиваем число на сотни, десятки и единицы
       const hundreds = Math.floor(number / 100) * 100;
